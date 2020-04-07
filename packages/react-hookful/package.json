@@ -1,0 +1,21 @@
+{
+  "name": "react-hookful",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "git+https://github.com/Frantss/react-hookful.git",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "authors": [
+    "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.1"
+  }
+}
