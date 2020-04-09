@@ -1,11 +1,17 @@
 import { useState } from 'react';
+import { VoidFunction } from './types';
 import useFreezedCallback from './useFreezedCallback';
 
-const useStateObject = initialState => {
+/**
+ *
+ * @param initialState - Initial state value.
+ * @returns A tuple with the current state, the state setter, and a state reset.
+ */
+const useStateObject = <T>(initialState: T): [T, (arg: any) => void, VoidFunction] => {
   const [state, setState] = useState(initialState);
 
   const newSetState = useFreezedCallback(newState =>
-    setState(prevState => ({ ...prevState, ...newState }))
+    setState(prevState => ({ ...prevState, ...newState })),
   );
 
   const clearState = useFreezedCallback(() => setState(initialState));
