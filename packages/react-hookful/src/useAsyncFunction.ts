@@ -3,10 +3,10 @@ import useStateObject from './useStateObject';
 
 import { AsyncFunction } from './types';
 
-export interface IAsyncFunctionState<T> {
+export interface AsyncFunctionState<T> {
   data: T;
   loading: boolean;
-  error: any;
+  error: unknown;
 }
 
 /**
@@ -21,10 +21,10 @@ export interface IAsyncFunctionState<T> {
  */
 const useAsyncFunction = <T, R>(
   asyncFn: AsyncFunction<R>,
-  args: any[] = [],
-  dependencies: any[] = [],
-): IAsyncFunctionState<T> => {
-  const [state, setState] = useStateObject<IAsyncFunctionState<T>>({
+  args: unknown[] = [],
+  dependencies: unknown[] = [],
+): AsyncFunctionState<T> => {
+  const [state, setState] = useStateObject<AsyncFunctionState<T>>({
     data: null,
     loading: true,
     error: null,

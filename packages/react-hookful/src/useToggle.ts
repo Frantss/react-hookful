@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import useFreezedCallback from './useFreezedCallback';
 
-interface ITogglerSetter {
+interface TogglerSetter {
   setTrue: () => void;
   setFalse: () => void;
 }
@@ -15,7 +15,7 @@ interface ITogglerSetter {
  */
 const useToggle = (
   initialValue: boolean | (() => boolean),
-): [boolean, () => void, ITogglerSetter] => {
+): [boolean, () => void, TogglerSetter] => {
   const [toggle, setToggle] = useState(initialValue);
 
   const setTrue = useFreezedCallback(() => setToggle(true));
