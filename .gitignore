@@ -13,5 +13,7 @@ node_modules
 .history
 .vscode
 
-# Compiled ts
-packages/*/lib
+# Compiled
+lib
+dist
+build
