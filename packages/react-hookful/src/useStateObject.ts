@@ -7,10 +7,10 @@ import useFreezedCallback from './useFreezedCallback';
  * @param initialState - Initial state value.
  * @returns A tuple with the current state, the state setter, and a state reset.
  */
-const useStateObject = <T>(initialState: T): [T, (arg: any) => void, VoidFunction] => {
+const useStateObject = <T>(initialState: T): [T, (arg: object) => void, VoidFunction] => {
   const [state, setState] = useState(initialState);
 
-  const newSetState = useFreezedCallback(newState =>
+  const newSetState = useFreezedCallback((newState: object) =>
     setState(prevState => ({ ...prevState, ...newState })),
   );
 

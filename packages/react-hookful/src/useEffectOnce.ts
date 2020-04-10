@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { GenericFunction } from './types';
 
 /**
- * A simple `React.useEffect` wrapper for ensuring the effect is run once and eslint doesn't complain.
+ * A simple `React.useEffect` wrapper for ensuring the effect is run once and eslint
+ * doesn't complain.
  *
  * @param fn - Imperative function that can return a cleanup function.
  */
