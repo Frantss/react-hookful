@@ -5,5 +5,8 @@
     "prettier/prettier": ["error"],
     "no-use-before-define": "off",
     "import/prefer-default-export": "off"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
   }
 }

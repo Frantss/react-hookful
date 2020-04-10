@@ -2,13 +2,17 @@
   "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
-    "jsx": "react",
-    "sourceMap": true,
     "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
-    "noLib": false
-  }
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "lib": ["es6"]
+  },
+  "include": ["packages/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
