@@ -6,9 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# Miscellaneous
-temp
-
 # Node
 node_modules
 
@@ -16,6 +13,5 @@ node_modules
 .history
 .vscode
 
-# Compiled
+# Compiled ts
 packages/*/lib
-packages/*/dist
