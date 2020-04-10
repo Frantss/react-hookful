@@ -1,9 +1,10 @@
 {
   "name": "react-hookful",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "repository": "git+https://github.com/Frantss/react-hookful.git",
-  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "dist/index.d.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +18,8 @@
   "license": "MIT",
   "dependencies": {
     "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.34"
   }
 }
