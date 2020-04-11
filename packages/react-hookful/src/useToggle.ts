@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import useFreezedCallback from './useFreezedCallback';
 
-interface TogglerSetter {
+export interface TogglerSetter {
   setTrue: () => void;
   setFalse: () => void;
 }

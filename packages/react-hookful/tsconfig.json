@@ -3,6 +3,12 @@
   "compilerOptions": {
     "outDir": "./lib"
   },
-  "include": ["./src"],
+  "include": [
+    "./src",
+    "tests/useEffectOnce.spec.tsx",
+    "tests/useFreezedCallback.spec.tsx",
+    "tests/useStateObject.spec.tsx",
+    "tests/useToggle.spec.tsx"
+  ],
   "exclude": ["**/*.spec.js"]
 }

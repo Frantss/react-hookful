@@ -13,6 +13,9 @@ node_modules
 .history
 .vscode
 
+# Miscellaneous
+coverage
+
 # Compiled
 lib
 dist

@@ -10,8 +10,8 @@ import { GenericFunction } from './types';
  * @param callback - The callback to freeze.
  * @returns The freezed callback.
  */
-const useFreezedCallback = <T extends GenericFunction>(callback: T): T => {
-  const reference = useRef<T>();
+const useFreezedCallback = <T>(callback: GenericFunction<T>): GenericFunction<T> => {
+  const reference = useRef<GenericFunction<T>>();
 
   if (!reference.current) {
     reference.current = callback;

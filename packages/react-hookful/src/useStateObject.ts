@@ -14,9 +14,9 @@ const useStateObject = <T>(initialState: T): [T, (arg: object) => void, VoidFunc
     setState(prevState => ({ ...prevState, ...newState })),
   );
 
-  const clearState = useFreezedCallback(() => setState(initialState));
+  const resetState = useFreezedCallback(() => setState(initialState));
 
-  return [state, newSetState, clearState];
+  return [state, newSetState, resetState];
 };
 
 export default useStateObject;

@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { GenericFunction } from './types';
+import { useEffect, EffectCallback } from 'react';
 
 /**
  * A simple `React.useEffect` wrapper for ensuring the effect is run once and eslint
@@ -7,7 +6,7 @@ import { GenericFunction } from './types';
  *
  * @param fn - Imperative function that can return a cleanup function.
  */
-const useEffectOnce = <T extends GenericFunction>(fn: T): void => {
+const useEffectOnce = <T extends EffectCallback>(fn: T): void => {
   useEffect(fn, []); // eslint-disable-line
 };
 

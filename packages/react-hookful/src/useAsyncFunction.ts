@@ -17,10 +17,12 @@ export interface AsyncFunctionState<T> {
  * @param args Array of arguments for that `asyncFn` takes.
  * @param dependencies `asyncFn` will run each time the values of this array change.
  *
+ * @typeParam T - Return type of `asyncFn`.
+ *
  * @returns Object holding the current status (`loading`) and either the resulting data or an error.
  */
-const useAsyncFunction = <T, R>(
-  asyncFn: AsyncFunction<R>,
+const useAsyncFunction = <T>(
+  asyncFn: AsyncFunction<T>,
   args: unknown[] = [],
   dependencies: unknown[] = [],
 ): AsyncFunctionState<T> => {
