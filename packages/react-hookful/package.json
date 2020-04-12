@@ -16,7 +16,6 @@
     "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
   ],
   "scripts": {
-    "checktag": "lerna version --no-push --no-git-tag-version --allow-branch develop",
     "dev": "tsdx watch  --format cjs,esm,umd",
     "build": "tsdx build --format cjs,esm,umd --name react-hookful && api-extractor run --local",
     "lint": "tsdx lint src",
