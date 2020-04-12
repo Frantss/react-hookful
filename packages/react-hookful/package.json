@@ -1,6 +1,6 @@
 {
   "name": "react-hookful",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "repository": "git+https://github.com/Frantss/react-hookful.git",
   "main": "dist/react-hookful.js",
