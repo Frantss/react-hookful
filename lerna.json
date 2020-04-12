@@ -1,0 +1,14 @@
+{
+  "packages": ["packages/*"],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "allowBranch": "master",
+      "message": "chore(release): publish",
+      "conventionalCommits": true
+    }
+  },
+  "ignoreChanges": ["**/*.spec.*", "**/*.md"]
+}

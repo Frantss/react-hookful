@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "name": "react-hooks-packages",
+  "version": "0.0.0",
+  "description": "Useful react hooks",
+  "repository": "git+https://github.com/Frantss/react-hookful.git",
+  "authors": [
+    "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Frantss/react-hookful/issues"
+  },
+  "homepage": "https://github.com/Frantss/react-hookful#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.2.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "husky": "^4.2.5",
+    "lerna": "^3.20.2",
+    "prettier": "^2.0.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "name": "⚙️ react-hooks-packages",
+      "path": "."
+    },
+    {
+      "name": "📦 react-hookful",
+      "path": "packages/react-hookful"
+    }
+  ],
+  "settings": {}
+}
