@@ -1,9 +1,7 @@
-export { default as useFreezedCallback } from './useFreezedCallback';
+export * from './useFreezedCallback';
+export * from './useEffectOnce';
+export * from './useStateObject';
+export * from './useAsyncFunction';
+export * from './useToggle';
 
-export { default as useEffectOnce } from './useEffectOnce';
-
-export { default as useStateObject } from './useStateObject';
-
-export { default as useAsyncFunction } from './useAsyncFunction';
-
-export { default as useToggle } from './useToggle';
+export * from './types';

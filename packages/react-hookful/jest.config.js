@@ -1,3 +1,3 @@
 module.exports = {
-  setupFiles: ['./enzyme.config.js'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/index.(js|ts)x?/'],
 };
