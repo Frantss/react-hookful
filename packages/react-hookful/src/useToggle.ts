@@ -7,7 +7,9 @@ export interface TogglerSetter {
 }
 
 /**
- * A simple hook that encapsulates boolean toggling logic.
+ * Hook that stores a boolean value, and provides logic for toggling and setting the value.
+ *
+ * The return value is a tuple with the value, toggler, and a object with the `true` and `false` setters.
  *
  * @param initialValue - Either the initial value or a function that resolves to it for lazy loading.
  *

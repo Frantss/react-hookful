@@ -1,8 +1,8 @@
 import { useEffect, EffectCallback } from 'react';
 
 /**
- * A simple `React.useEffect` wrapper for ensuring the effect is run once and eslint
- * doesn't complain.
+ * This hook its a simple wrapper of `React.useEffect` with and empty dependencies array.
+ * It ensures the return function is always the same.
  *
  * @param fn - Imperative function that can return a cleanup function.
  */
