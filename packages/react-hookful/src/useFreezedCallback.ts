@@ -3,9 +3,11 @@ import { GenericFunction } from './types';
 
 /**
  * Hook that freezed a given callback, so it is only created once in the components life.
- * It ensures the return value is always the same.
+ * It ensures the return function is always the same.
  *
- * Should the callback ever be recalculated use `React.useCallback` or `React.useMemo`.
+ * Useful for optimizations where otherwise constant functions are recalculated every re-render
+ *
+ * Should the callback ever be recalculated see `React.useCallback` and `React.useMemo`.
  *
  * @param callback - The callback to freeze.
  * @returns The freezed callback.
