@@ -15,6 +15,7 @@ node_modules
 
 # Miscellaneous
 coverage
+temp
 
 # Compiled
 lib

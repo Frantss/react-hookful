@@ -4,9 +4,9 @@ Useful and generic react hooks.
 
 ## Packages
 
-| Packages      | Version                                                              |
-| ------------- | -------------------------------------------------------------------- |
-| react-hookful | ![npm](https://img.shields.io/npm/v/react-hookful?style=flat-square) |
+| Packages                                                                                     | Version                                                              |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [react-hookful](https://github.com/Frantss/react-hookful/tree/master/packages/react-hookful) | ![npm](https://img.shields.io/npm/v/react-hookful?style=flat-square) |
 
 ## Contribution and Development
 

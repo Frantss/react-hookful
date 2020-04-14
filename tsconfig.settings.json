@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "es6",
+    "target": "es2018",
     "module": "es2015",
     "sourceMap": true,
-    "jsx": "react",
     "allowSyntheticDefaultImports": true,
+    "jsx": "react",
     "declaration": true,
     "noImplicitAny": false,
-    "removeComments": true
+    "removeComments": true,
+    "strict": true
   }
 }
