@@ -26,7 +26,7 @@ const useAsyncFunction = <T>(
   args: unknown[] = [],
   dependencies: unknown[] = [],
 ): AsyncFunctionState<T> => {
-  const [state, setState] = useStateObject<AsyncFunctionState<T>>({
+  const [state, setState] = useStateObject({
     data: null,
     loading: true,
     error: null,
@@ -35,9 +35,9 @@ const useAsyncFunction = <T>(
   const runAsyncFn = useCallback(async () => {
     try {
       const data = await asyncFn(...args);
-      setState({ data, loading: false });
+      setState.merge({ data, loading: false });
     } catch (error) {
-      setState({ error, loading: false });
+      setState.merge({ error, loading: false });
     }
   }, dependencies); // eslint-disable-line
 
@@ -45,7 +45,7 @@ const useAsyncFunction = <T>(
     runAsyncFn();
   }, dependencies); // eslint-disable-line
 
-  return state;
+  return state as AsyncFunctionState<T>;
 };
 
 export default useAsyncFunction;

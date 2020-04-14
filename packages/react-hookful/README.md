@@ -14,27 +14,36 @@ Useful react hooks that help you clean up you functional components.
 ## Installation
 
 ```shell
+# NPM
 npm install react-hookful
+
+# Yarn
 yarn install react-hookful
 ```
 
 ## Hooks
 
-- [useAsyncFunction](#useAsyncFunction) - Runs an async function and keeps track of it's result, status, and error
+- [useAsyncFunction](#useAsyncFunction) - Runs an async function and keeps track of its result, status, and error
 - [useEffectOnce](#useEffectOnce) - A semantic replacement for `useEffect` with an empty dependencies array
 - [useFreezedCallback](#useFreezedCallback) - Returns a constant version of the function passed as argument
-- [useStateObject](#useStateObject) - Like `useState` but for objects, with state merging
-- [useToggle](#useToggle) - Returns a boolean with toggler and setters
+- [useStateObject](#useStateObject) - Like `useState` but for objects, with state built-in merging
+- [useToggle](#useToggle) - Returns a boolean value with toggler and setters
 
 ### useAsyncFunction
 
 ```tsx
-useAsyncFunction<T>(asyncFn: AsyncFunction<T>,args: unknown[] = [],dependencies: unknown[] = []): AsyncFunctionState<T>
+useAsyncFunction<T>(asyncFn: AsyncFunction<T>, args: unknown[] = [], dependencies: unknown[] = []): AsyncFunctionState<T>
 ```
 
 Hook for running side effects and monitor their current state.
 
 `loading` flag is initialized to `true` and changes to `false` once `asyncFn` has been resolved.
+
+#### `AsyncFunctionState<T>` interface
+
+- data: T - The result of the async function passed as an argument.
+- loading: boolean - Indicates whether the async function is still running.
+- error: unknown - In case an error occurs while executing the function it is stored in this value.
 
 #### Example
 
@@ -53,7 +62,7 @@ const Component = () => {
 ### useEffectOnce
 
 ```tsx
-useEffectOnce<T extends EffectCallback>(fn: T): void
+useEffectOnce(effect: EffectCallback): void
 ```
 
 This hook its a simple wrapper of `React.useEffect` with and empty dependencies array.
@@ -99,12 +108,17 @@ const Component = () => {
 ### useStateObject
 
 ```tsx
-useStateObject<T>(initialState: T): [T, (arg: object) => void, VoidFunction]
+useStateObject(initialState: object): [object, StateObjectSetter]
 ```
 
-Hook for creating a state object with setter that merges the given value into the current state.
+Hook for creating an object with several setters for ease of use. Like state merging and resetting.
 
-It also returns as a third value a state resetter, that restores the initial value.
+#### `StateObjectSetter` interface
+
+- merge: (arg: object) => void - Merges the current state with the `arg` object.
+- set: (arg: object | ((prevState: object) => object)) => void - State setter, the same you would get with `React.useState`.
+- reset: () => void - Resets the state back to the initial one.
+- clear: () => void - Sets the state to an empty object (`{}`).
 
 #### Example
 
@@ -112,31 +126,38 @@ It also returns as a third value a state resetter, that restores the initial val
 import { useStateObject } from 'react-hookful';
 
 const Component = () => {
-  const [state, setState, resetState] = useStateObject({ username: 'arumba' });
+  const [state, setState] = useStateObject({ username: 'arumba' });
 
-  setState({ username: 'fernir', password: '123' });
+  setState.merge({ username: 'fernir', password: '123' });
   console.log(state); // {username: 'fernir', password: '123'}
 
-  setState({ password: 'password' });
+  setState.set({ password: 'password' });
   console.log(state); // {username: 'fernir', password: 'password'}
 
-  resetState();
-  console.log(state); // { username: ''}
+  setState.set(prevState => ({ ...prevState, username: 'sofi' }));
+  console.log(state); // {username: 'sofi', password: 'password'}
+
+  setState.reset();
+  console.log(state); // { username: 'arumba'}
+
+  setState.clear();
+  console.log(state); // {}
 };
 ```
 
 ### useToggle
 
 ```tsx
-useToggle(initialValue: boolean | (() => boolean)): [boolean, () => void, TogglerSetter]
+useToggle(initialValue: boolean | (() => boolean)): [boolean, TogglerSetter]
 ```
 
 Hook that stores a boolean value, and provides logic for toggling and setting the value.
 
 The return value is a tuple with the value, toggler, and a object with the `true` and `false` setters.
 
-#### `TogglerSetter`
+#### `TogglerSetter` interface
 
+- `toggle: () => void` - Toggles the boolean value to its opposite.
 - `setTrue: () => void` - Sets the value to true.
 - `setFalse: () => void` - Sets the value to false.
 
@@ -146,11 +167,11 @@ The return value is a tuple with the value, toggler, and a object with the `true
 import { useToggle } from 'react-hooks';
 
 const Component = () => {
-  const [isLoading, toggleIsLoading, setIsLoading] = useToggle(true);
+  const [isLoading, setIsLoading] = useToggle(true);
 
   console.log(isLoading); // true
 
-  toggleIsLoading();
+  setIsLoading.toggle();
   console.log(isLoading); // false
 
   setIsLoading.setTrue();
