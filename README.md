@@ -10,6 +10,8 @@ Useful and generic react hooks.
 
 ## Contribution and Development
 
+Although this is a personal project it is aimed to be as production ready as possible.
+
 You may have noticed the repo is structure as a monorepo using lerna. This is so that its easier to separate hooks into different packages based on the dependencies needed.
 
 The idea is to have the main package _react-hookful_ to only be dependent on react. And create new packages for each library, e.g. _react-hookful-redux_ for _react-redux_

@@ -10,11 +10,34 @@ describe('useStateObject', () => {
     expect(result.current[0]).toStrictEqual(initialState);
   });
 
-  it('merges the input with the current state', async () => {
+  it('merges the state with a given input', () => {
     const { result } = renderHook(() => useStateObject({ a: 'a' }));
 
     act(() => {
-      result.current[1]({ b: 'b' });
+      result.current[1].merge({ b: 'b' });
+    });
+
+    expect(result.current[0]).toStrictEqual({ a: 'a', b: 'b' });
+  });
+
+  it('sets the state with a given input', () => {
+    const { result } = renderHook(() => useStateObject({ a: 'a' }));
+
+    act(() => {
+      result.current[1].set({ b: 'b' });
+    });
+
+    expect(result.current[0]).toStrictEqual({ b: 'b' });
+  });
+
+  it('sets the state using a reference to the current one', () => {
+    const { result } = renderHook(() => useStateObject({ a: 'a' }));
+
+    act(() => {
+      result.current[1].set(prevState => ({
+        ...prevState,
+        b: 'b',
+      }));
     });
 
     expect(result.current[0]).toStrictEqual({ a: 'a', b: 'b' });
@@ -24,9 +47,18 @@ describe('useStateObject', () => {
     const { result } = renderHook(() => useStateObject({ a: 'a' }));
 
     act(() => {
-      result.current[1]({ b: 'b' });
-      result.current[2]();
+      result.current[1].merge({ b: 'b' });
+      result.current[1].reset();
     });
     expect(result.current[0]).toStrictEqual({ a: 'a' });
+  });
+
+  it('clears the state', () => {
+    const { result } = renderHook(() => useStateObject({ a: 'a' }));
+
+    act(() => {
+      result.current[1].clear();
+    });
+    expect(result.current[0]).toStrictEqual({});
   });
 });

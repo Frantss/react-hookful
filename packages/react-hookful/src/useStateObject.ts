@@ -1,25 +1,35 @@
 import { useState } from 'react';
-import { VoidFunction } from './types';
 import useFreezedCallback from './useFreezedCallback';
 
+/** Setters of the state maintained by `useStateObject */
+export interface StateObjectSetter {
+  /** Merges the current state with the `arg` object. */
+  merge: (arg: object) => void;
+  /**  State setter, the same you would get with `React.useState`. */
+  set: (arg: object | ((prevState: object) => object)) => void;
+  /** Resets the state back to the initial one. */
+  reset: () => void;
+  /** Sets the state to an empty object (`{}`). */
+  clear: () => void;
+}
+
 /**
- * Hook for creating a state object with setter that merges the given value into the current state.
- *
- * It also returns as a third value a state resetter, that restores the initial value.
+ * Hook for creating an object with several setters for ease of use. Like state merging and resetting.
  *
  * @param initialState - Initial state value.
- * @returns A tuple with the current state, the state setter, and a state reset.
+ * @returns A tuple with the current state, and the setters.
  */
-const useStateObject = <T>(initialState: T): [T, (arg: object) => void, VoidFunction] => {
-  const [state, setState] = useState(initialState);
+const useStateObject = (initialState: object): [object, StateObjectSetter] => {
+  const [state, set] = useState(initialState);
 
-  const newSetState = useFreezedCallback((newState: object) =>
-    setState(prevState => ({ ...prevState, ...newState })),
+  const merge = useFreezedCallback((newState: object) =>
+    set(prevState => ({ ...prevState, ...newState })),
   );
 
-  const resetState = useFreezedCallback(() => setState(initialState));
+  const reset = useFreezedCallback(() => set(initialState));
+  const clear = useFreezedCallback(() => set({}));
 
-  return [state, newSetState, resetState];
+  return [state, { set, merge, reset, clear }];
 };
 
 export default useStateObject;
