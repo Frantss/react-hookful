@@ -1,7 +1,7 @@
 {
   "name": "react-hookful",
   "version": "0.0.4",
-  "description": "",
+  "description": "Useful react hooks that help you clean up you functional components.",
   "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/react-hookful",
   "main": "dist/main.js",
   "types": "dist/react-hookful.d.ts",
