@@ -25,6 +25,9 @@
     "test:watch": "jest test --config ./jest.config.js --watch",
     "test:coverage": "jest test --config ./jest.config.js --coverage"
   },
+  "dependencies": {
+    "@react-hookful/core": "^0.x"
+  },
   "peerDependencies": {
     "react": "^16.x"
   },
