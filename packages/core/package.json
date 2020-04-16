@@ -1,8 +1,8 @@
 {
-  "name": "react-hookful",
-  "version": "0.0.4",
+  "name": "@react-hookful/core",
+  "version": "0.0.0",
   "description": "Useful react hooks that help you clean up you functional components.",
-  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/react-hookful",
+  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/core",
   "main": "dist/main.js",
   "types": "dist/react-hookful.d.ts",
   "license": "MIT",
@@ -20,8 +20,8 @@
     "test:watch": "jest test --config ./jest.config.js --watch",
     "test:coverage": "jest test --config ./jest.config.js --coverage"
   },
-  "dependencies": {
-    "react": "^16.13.1"
+  "peerDependencies": {
+    "react": "^16.x"
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.2.1",
