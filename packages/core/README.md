@@ -1,7 +1,7 @@
 # react-hookful
 
-![npm](https://img.shields.io/npm/v/react-hookful?style=plastic)
-![npm bundle size](https://img.shields.io/bundlephobia/min/react-hookful?style=plastic)
+![npm (scoped)](https://img.shields.io/npm/v/@react-hookful/core?style=plastic)
+![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@react-hookful/core?style=plastic)
 
 Useful react hooks that help you clean up you functional components.
 
