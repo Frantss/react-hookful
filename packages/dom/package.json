@@ -1,0 +1,52 @@
+{
+  "name": "@react-hookful/dom",
+  "version": "0.0.0",
+  "description": "Useful react DOM-related hooks that help you clean up you functional components.",
+  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/dom",
+  "main": "dist/main.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks",
+    "dom"
+  ],
+  "authors": [
+    "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint ./",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest test --config ./jest.config.js",
+    "test:watch": "jest test --config ./jest.config.js --watch",
+    "test:coverage": "jest test --config ./jest.config.js --coverage"
+  },
+  "peerDependencies": {
+    "react": "^16.x"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "jest": "^25.3.0",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "source-map-loader": "^0.2.4",
+    "ts-jest": "^25.3.1",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "files": [
+    "dist/*.d.ts",
+    "dist/*.js",
+    "dist/*.js.map",
+    "src"
+  ]
+}
