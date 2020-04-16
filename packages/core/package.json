@@ -18,7 +18,8 @@
   },
   "scripts": {
     "build": "webpack && api-extractor run --local",
-    "lint": "lint src",
+    "lint": "eslint . && prettier . --check",
+    "lint:fix": "eslint . --fix && prettier . --write",
     "test": "jest test --config ./jest.config.js",
     "test:watch": "jest test --config ./jest.config.js --watch",
     "test:coverage": "jest test --config ./jest.config.js --coverage"
