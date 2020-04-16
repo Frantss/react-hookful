@@ -13,6 +13,9 @@
   "authors": [
     "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "webpack && api-extractor run --local",
     "lint": "lint src",
