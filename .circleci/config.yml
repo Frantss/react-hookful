@@ -1,0 +1,37 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@1.1.6
+
+jobs:
+  build-and-test:
+    branches:
+      only:
+        - develop
+        - master
+    steps:
+      - checkout
+      - run: yarn install
+      - run: lerna run test
+      - run: lerna run build
+
+  publish:
+    branches:
+      only:
+        - master
+    steps:
+      - run: lerna publish --conventional-prerelease --no-changelog
+
+  merge-back:
+    branches:
+      only:
+        - master
+    steps:
+      - run: git checkout develop
+      - run: git merge master
+
+workflows:
+  jobs:
+    - build-and-test
+    - publish
+    - merge-back
