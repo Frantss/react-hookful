@@ -1,4 +1,4 @@
-/** A function with generic parameters and return value */
+/** Function with generic parameters and return value */
 export type GenericFunction<T> = (...args: any[]) => T;
 
 /** Generic asynchronous function */
