@@ -13,6 +13,7 @@ jobs:
       - checkout
       - run: yarn install
       - run: lerna run test
+      - run: lerna run build
 
   publish:
     branches:
