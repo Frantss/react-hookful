@@ -26,7 +26,7 @@
     "test:coverage": "jest test --config ./jest.config.js --coverage"
   },
   "dependencies": {
-    "@react-hookful/core": "^0.x"
+    "@react-hookful/core": "^0.0.1-alpha.0"
   },
   "peerDependencies": {
     "react": "^16.x"

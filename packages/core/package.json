@@ -4,7 +4,7 @@
   "description": "Useful react hooks that help you clean up you functional components.",
   "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/core",
   "main": "dist/main.js",
-  "types": "dist/react-hookful.d.ts",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "keywords": [
     "react",
@@ -43,7 +43,7 @@
     "webpack-cli": "^3.3.11"
   },
   "files": [
-    "dist/react-hookful.d.ts",
+    "dist/*.d.ts",
     "dist/*.js",
     "dist/*.js.map",
     "src"

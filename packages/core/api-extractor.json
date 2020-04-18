@@ -9,6 +9,6 @@
     "enabled": false
   },
   "dtsRollup": {
-    "enabled": true
+    "enabled": false
   }
 }
