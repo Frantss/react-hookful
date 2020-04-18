@@ -6,8 +6,6 @@ import { useEffect, EffectCallback } from 'react';
  *
  * @param effect - Imperative function that can return a cleanup function.
  */
-const useEffectOnce = (effect: EffectCallback): void => {
+export const useEffectOnce = (effect: EffectCallback): void => {
   useEffect(effect, []); // eslint-disable-line
 };
-
-export default useEffectOnce;

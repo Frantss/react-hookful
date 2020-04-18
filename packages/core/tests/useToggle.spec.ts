@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import useToggle from '../src/useToggle';
+import { useToggle } from '../src/useToggle';
 
 describe('useToggle', () => {
   it('respects initial state', () => {

@@ -9,6 +9,8 @@
     "enabled": false
   },
   "dtsRollup": {
-    "enabled": false
+    "enabled": true,
+    "publicTrimmedFilePath": "dist/index.public.d.ts",
+    "untrimmedFilePath": "dist/index.d.ts"
   }
 }

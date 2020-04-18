@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import useStateObject from './useStateObject';
+import { useStateObject } from './useStateObject';
 
 import { AsyncFunction } from './types';
 
@@ -21,7 +21,7 @@ export interface AsyncFunctionState<T> {
  *
  * @returns Object holding the current status (`loading`) and either the resulting data or an error.
  */
-const useAsyncFunction = <T>(
+export const useAsyncFunction = <T>(
   asyncFn: AsyncFunction<T>,
   args: unknown[] = [],
   dependencies: unknown[] = [],
@@ -47,5 +47,3 @@ const useAsyncFunction = <T>(
 
   return state as AsyncFunctionState<T>;
 };
-
-export default useAsyncFunction;

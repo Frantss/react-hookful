@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import useStateObject from '../src/useStateObject';
+import { useStateObject } from '../src/useStateObject';
 
 describe('useStateObject', () => {
   it('should respect initial state', () => {

@@ -12,7 +12,7 @@ import { GenericFunction } from './types';
  * @param callback - The callback to freeze.
  * @returns The freezed callback.
  */
-const useFreezedCallback = <T>(callback: GenericFunction<T>): GenericFunction<T> => {
+export const useFreezedCallback = <T>(callback: GenericFunction<T>): GenericFunction<T> => {
   const reference = useRef<GenericFunction<T>>();
 
   if (!reference.current) {
@@ -21,5 +21,3 @@ const useFreezedCallback = <T>(callback: GenericFunction<T>): GenericFunction<T>
 
   return reference.current;
 };
-
-export default useFreezedCallback;
