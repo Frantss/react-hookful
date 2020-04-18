@@ -1,6 +1,6 @@
 {
   "name": "@react-hookful/dom",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "Useful react DOM-related hooks that help you clean up you functional components.",
   "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/dom",
   "main": "dist/index.js",
@@ -25,7 +25,6 @@
     "test:watch": "jest test --config ./jest.config.js --watch",
     "test:coverage": "jest test --config ./jest.config.js --coverage"
   },
-  "dependencies": {},
   "peerDependencies": {
     "react": "^16.x"
   },
