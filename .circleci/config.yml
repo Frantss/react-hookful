@@ -5,33 +5,51 @@ orbs:
 
 jobs:
   build-and-test:
-    branches:
-      only:
-        - develop
-        - master
+    executor:
+      name: node/default
     steps:
       - checkout
-      - run: yarn install
-      - run: lerna run test
-      - run: lerna run build
+      - node/with-cache:
+          steps:
+            - run: yarn install
+            - run: yarn lerna run test
+            - run: yarn lerna run build
 
   publish:
-    branches:
-      only:
-        - master
+    executor:
+      name: node/default
     steps:
-      - run: lerna publish --conventional-prerelease --no-changelog
+      - checkout
+      - run: yarn lerna publish --conventional-prerelease --no-changelog --yes
 
   merge-back:
-    branches:
-      only:
-        - master
+    executor:
+      name: node/default
     steps:
       - run: git checkout develop
       - run: git merge master
 
 workflows:
-  jobs:
-    - build-and-test
-    - publish
-    - merge-back
+  version: 2
+  build-and-publish:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only:
+                - develop
+                - master
+      - publish:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only:
+                - master
+      - merge-back:
+          requires:
+            - publish
+          filters:
+            branches:
+              only:
+                - master
