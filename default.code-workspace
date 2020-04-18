@@ -9,8 +9,8 @@
       "path": "packages/dom"
     },
     {
-      "name": "📦 react-hookful",
-      "path": "packages/react-hookful"
+      "name": "📦 core",
+      "path": "packages/core"
     }
   ],
   "settings": {}

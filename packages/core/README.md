@@ -1,33 +1,39 @@
-# react-hookful
+# <h1 align="center">@react-hookful/core</h1>
 
-![npm](https://img.shields.io/npm/v/react-hookful?style=plastic)
-![npm bundle size](https://img.shields.io/bundlephobia/min/react-hookful?style=plastic)
+<p align="center">
+  <a href="https://www.npmjs.com/package/@react-hookful/core">
+    <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@react-hookful/core?style=plastic">
+  </a>
+
+  <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/@react-hookful/core?style=plastic">
+</p>
 
 Useful react hooks that help you clean up you functional components.
 
 ## Contents
 
-- [Installation](#Installation)
-- [Hooks](#Hooks)
-- [License](#License)
+- [Installation](#installation)
+- [Hooks](#hooks)
+- [License](#license)
 
 ## Installation
 
 ```shell
 # NPM
-npm install react-hookful
+npm install @react-hookful/core
 
 # Yarn
-yarn install react-hookful
+yarn install @react-hookful/core
 ```
 
 ## Hooks
 
-- [useAsyncFunction](#useAsyncFunction) - Runs an async function and keeps track of its result, status, and error
-- [useEffectOnce](#useEffectOnce) - A semantic replacement for `useEffect` with an empty dependencies array
-- [useFreezedCallback](#useFreezedCallback) - Returns a constant version of the function passed as argument
-- [useStateObject](#useStateObject) - Like `useState` but for objects, with state built-in merging
-- [useToggle](#useToggle) - Returns a boolean value with toggler and setters
+- [useAsyncFunction](#useasyncfunction) - Runs an async function and keeps track of its result, status, and error
+- [useEffectOnce](#useeffectonce) - A semantic replacement for `useEffect` with
+  an empty dependencies array
+- [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
+- [useStateObject](#usestateobject) - Like `useState` but for objects, with state built-in merging
+- [useToggle](#usetoggle) - Returns a boolean value with toggler and setters
 
 ### useAsyncFunction
 
@@ -48,7 +54,7 @@ Hook for running side effects and monitor their current state.
 #### Example
 
 ```jsx
-import { useAsyncFunction } from 'react-hookful';
+import { useAsyncFunction } from '@react-hookful/core';
 
 const Component = () => {
   const { data, loading, error } = useAsyncFunction(() => {
@@ -71,7 +77,7 @@ It is a way of clearly stating your intentions though semantics.
 #### Example
 
 ```jsx
-import { useEffectOnce } from 'react-hookful';
+import { useEffectOnce } from '@react-hookful/core';
 
 const Component = () => {
   useEffectOnce(() => {
@@ -96,7 +102,7 @@ Should the callback ever be recalculated see `React.useCallback` and `React.useM
 #### Example
 
 ```jsx
-import { useFreezedCallback } from 'react-hookful';
+import { useFreezedCallback } from '@react-hookful/core';
 
 const Component = () => {
   const freezedCb = useFreezedCallback(() => {
@@ -115,15 +121,15 @@ Hook for creating an object with several setters for ease of use. Like state mer
 
 #### `StateObjectSetter` interface
 
-- merge: (arg: object) => void - Merges the current state with the `arg` object.
-- set: (arg: object | ((prevState: object) => object)) => void - State setter, the same you would get with `React.useState`.
-- reset: () => void - Resets the state back to the initial one.
-- clear: () => void - Sets the state to an empty object (`{}`).
+- `merge: (arg: object) => void` - Merges the current state with the `arg` object.
+- `set: (arg: object | ((prevState: object) => object)) => void` - State setter, the same you would get with `React.useState`.
+- `reset: () => void` - Resets the state back to the initial one.
+- `clear: () => void` - Sets the state to an empty object (`{}`).
 
 #### Example
 
 ```jsx
-import { useStateObject } from 'react-hookful';
+import { useStateObject } from '@react-hookful/core';
 
 const Component = () => {
   const [state, setState] = useStateObject({ username: 'arumba' });
@@ -158,13 +164,13 @@ The return value is a tuple with the value, toggler, and a object with the `true
 #### `TogglerSetter` interface
 
 - `toggle: () => void` - Toggles the boolean value to its opposite.
-- `setTrue: () => void` - Sets the value to true.
-- `setFalse: () => void` - Sets the value to false.
+- `setTrue: () => void` - Sets the value to `true`.
+- `setFalse: () => void` - Sets the value to `false`.
 
 #### Example
 
 ```jsx
-import { useToggle } from 'react-hooks';
+import { useToggle } from '@react-hooks/core';
 
 const Component = () => {
   const [isLoading, setIsLoading] = useToggle(true);

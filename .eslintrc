@@ -1,8 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json",
-    "projectFolderIgnoreList": ["node_modules", "dist", "build", "lib"]
+    "project": ["./tsconfig.json", "../../tsconfig.settings.json"]
   },
   "extends": [
     "airbnb-typescript/base",
@@ -15,8 +14,7 @@
     "prettier/prettier": ["error"],
     "no-use-before-define": "off",
     "import/prefer-default-export": "off",
-    "@typescript-eslint/no-explicit-any": {
-      "ignoreRestArgs": true
-    }
-  }
+    "@typescript-eslint/no-explicit-any": ["error", { "ignoreRestArgs": true }]
+  },
+  "ignorePatterns": ["coverage", "dist", "temp", "node_modules"]
 }
