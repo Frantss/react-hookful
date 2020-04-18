@@ -32,10 +32,10 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-      branches:
-        only:
-          - develop
-          - master
+        branches:
+          only:
+            - develop
+            - master
 
   publish:
     jobs:
