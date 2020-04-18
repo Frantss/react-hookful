@@ -1,8 +1,12 @@
 {
   "folders": [
     {
-      "name": "⚙️ react-hooks-packages",
+      "name": "✨ react-hooks-packages",
       "path": "."
+    },
+    {
+      "name": "📦 dom",
+      "path": "packages/dom"
     },
     {
       "name": "📦 core",
