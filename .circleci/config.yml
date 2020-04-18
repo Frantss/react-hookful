@@ -27,6 +27,8 @@ jobs:
                 at: ~/repo
             - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
             - run: yarn install
+            - run: git config user.email $GIT_EMAIL
+            - run: git config user.name $GIT_USERNAME
             - run: yarn lerna publish --conventional-prerelease --no-changelog --yes
 
   merge-back:
