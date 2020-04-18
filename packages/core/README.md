@@ -14,7 +14,6 @@ Useful react hooks that help you clean up you functional components.
 
 - [Installation](#installation)
 - [Hooks](#hooks)
-- [License](#license)
 
 ## Installation
 
