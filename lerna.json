@@ -5,13 +5,8 @@
   "useWorkspaces": true,
   "command": {
     "publish": {
-      "allowBranch": "develop",
+      "allowBranch": "master",
       "message": "chore(release): publish",
-      "conventionalCommits": true
-    },
-    "version": {
-      "allowBranch": "develop",
-      "message": "chore(release): version",
       "conventionalCommits": true
     }
   },

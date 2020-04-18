@@ -1,14 +1,15 @@
 {
-  "name": "@react-hookful/core",
-  "version": "0.0.1-alpha.0",
-  "description": "Useful react hooks that help you clean up you functional components.",
-  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/core",
+  "name": "@react-hookful/dom",
+  "version": "0.0.0",
+  "description": "Useful react DOM-related hooks that help you clean up you functional components.",
+  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/dom",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "keywords": [
     "react",
-    "hooks"
+    "hooks",
+    "dom"
   ],
   "authors": [
     "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
@@ -24,6 +25,7 @@
     "test:watch": "jest test --config ./jest.config.js --watch",
     "test:coverage": "jest test --config ./jest.config.js --coverage"
   },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.x"
   },
@@ -33,6 +35,7 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
     "jest": "^25.3.0",
+    "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "source-map-loader": "^0.2.4",

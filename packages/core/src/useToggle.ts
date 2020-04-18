@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useFreezedCallback from './useFreezedCallback';
+import { useFreezedCallback } from './useFreezedCallback';
 
 /** Setters of the state maintained by `useToggle */
 export interface TogglerSetter {
@@ -20,7 +20,7 @@ export interface TogglerSetter {
  *
  * @returns A tuple with the current state, the state toggler, and a object with `true` and `false` setters.
  */
-const useToggle = (initialValue: boolean | (() => boolean)): [boolean, TogglerSetter] => {
+export const useToggle = (initialValue: boolean | (() => boolean)): [boolean, TogglerSetter] => {
   const [value, setToggle] = useState(initialValue);
 
   const setTrue = useFreezedCallback(() => setToggle(true));
@@ -29,5 +29,3 @@ const useToggle = (initialValue: boolean | (() => boolean)): [boolean, TogglerSe
 
   return [value, { toggle, setTrue, setFalse }];
 };
-
-export default useToggle;

@@ -7,6 +7,10 @@
     {
       "name": "📦 core",
       "path": "packages/core"
+    },
+    {
+      "name": "📦 dom",
+      "path": "packages/dom"
     }
   ],
   "settings": {}
