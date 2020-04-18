@@ -12,15 +12,15 @@ jobs:
       - node/with-cache:
           steps:
             - run: yarn install
-            - run: lerna run test
-            - run: lerna run build
+            - run: yarn lerna run test
+            - run: yarn lerna run build
 
   publish:
     executor:
       name: node/default
     steps:
       - checkout
-      - run: lerna publish --conventional-prerelease --no-changelog
+      - run: yarn lerna publish --conventional-prerelease --no-changelog
 
   merge-back:
     executor:
