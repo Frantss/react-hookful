@@ -5,5 +5,5 @@ export const useLocalStorage = <T>(
   defaultValue?: T,
   options?: StorageOptions<T>,
 ): StorageValue<T> => {
-  return useStorage(key, defaultValue, options);
+  return useStorage(key, defaultValue, window.sessionStorage, options);
 };

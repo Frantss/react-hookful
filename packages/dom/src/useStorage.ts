@@ -2,7 +2,6 @@ import { useRef } from 'react';
 
 export interface StorageOptions<T> {
   override?: boolean;
-  storage?: Storage;
   parser?: (arg: string | null) => T | null;
   serializer?: (arg: T | null) => string;
 }
@@ -16,14 +15,13 @@ export interface StorageValue<T> {
 export const useStorage = <T>(
   key: string,
   defaultValue: T | null = null,
+  storage: Storage,
   {
     override = false,
-    storage = window.localStorage,
     parser = JSON.parse as (arg: string | null) => T,
     serializer = JSON.stringify,
   }: StorageOptions<T> = {
     override: false,
-    storage: window.localStorage,
     parser: JSON.parse as (arg: string | null) => T,
     serializer: JSON.stringify,
   },
