@@ -13,7 +13,7 @@ export interface StorageValue<T> {
   error?: DOMException;
 }
 
-const useStorage = <T>(
+export const useStorage = <T>(
   key: string,
   defaultValue: T | null = null,
   {
@@ -64,5 +64,3 @@ const useStorage = <T>(
 
   return { get, set, error: valueError.current };
 };
-
-export default useStorage;

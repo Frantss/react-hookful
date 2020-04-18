@@ -1,7 +1,9 @@
-import useStorage, { StorageOptions } from './useStorage';
+import { useStorage, StorageOptions, StorageValue } from './useStorage';
 
-const useSessionStorage = <T>(key: string, defaultValue?: T, options?: StorageOptions<T>) => {
+export const useSessionStorage = <T>(
+  key: string,
+  defaultValue?: T,
+  options?: StorageOptions<T>,
+): StorageValue<T> => {
   return useStorage(key, defaultValue, options);
 };
-
-export default useSessionStorage;

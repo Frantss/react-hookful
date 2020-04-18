@@ -3,6 +3,10 @@ module.exports = {
 
   devtool: 'source-map',
 
+  output: {
+    filename: 'index.js',
+  },
+
   resolve: {
     extensions: ['.ts', '.tsx'],
   },
