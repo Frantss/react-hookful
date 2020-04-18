@@ -10,15 +10,16 @@ jobs:
     steps:
       - checkout
       - node/with-cache:
-        steps:
-          - run: yarn install
-          - run: lerna run test
-          - run: lerna run build
+          steps:
+            - run: yarn install
+            - run: lerna run test
+            - run: lerna run build
 
   publish:
     executor:
       name: node/default
     steps:
+      - checkout
       - run: lerna publish --conventional-prerelease --no-changelog
 
   merge-back:
@@ -33,25 +34,25 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test:
-        filters:
-          branches:
-            only:
-              - develop
-              - master
+          filters:
+            branches:
+              only:
+                - develop
+                - master
 
   publish:
     jobs:
       - publish:
-        requires:
-          - build-and-test
-        filters:
-          branches:
-            only:
-              - master
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only:
+                - master
       - merge-back:
-        requires:
-          - publish
-        filters:
-          branches:
-            only:
-              - master
+          requires:
+            - publish
+          filters:
+            branches:
+              only:
+                - master
