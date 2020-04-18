@@ -12,7 +12,7 @@ jobs:
       - node/with-cache:
           steps:
             - attach_workspace:
-              at: ~/repo
+                at: ~/repo
             - run: yarn install
             - run: yarn lerna run test
             - run: yarn lerna run build
@@ -24,7 +24,7 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+            - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
             - run: yarn lerna publish --conventional-prerelease --no-changelog --yes
 
   merge-back:
