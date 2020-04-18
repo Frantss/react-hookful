@@ -32,22 +32,25 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-        branches:
-          only:
-            - develop
-            - master
+        filters:
+          branches:
+            only:
+              - develop
+              - master
 
   publish:
     jobs:
       - publish
         requires:
           - build-and-test
-        branches:
-          only:
-            - master
+        filters:
+          branches:
+            only:
+              - master
       - merge-back
         requires:
           - publish
-        branches:
-          only:
-            - master
+        filters:
+          branches:
+            only:
+              - master
