@@ -20,7 +20,7 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - run: yarn lerna publish --conventional-prerelease --no-changelog
+      - run: yarn lerna publish --conventional-prerelease --no-changelog --yes
 
   merge-back:
     executor:
