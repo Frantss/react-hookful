@@ -20,7 +20,9 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - run: yarn lerna publish --conventional-prerelease --no-changelog --yes
+      - node/with-cache:
+          steps:
+            - run: yarn lerna publish --conventional-prerelease --no-changelog --yes
 
   merge-back:
     executor:
@@ -39,6 +41,7 @@ workflows:
               only:
                 - develop
                 - master
+                - /^feat(ure)?\/.+/
       - publish:
           requires:
             - build-and-test
