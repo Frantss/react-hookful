@@ -31,7 +31,7 @@ jobs:
 
 workflows:
   version: 2
-  build-and-test:
+  build-and-publish:
     jobs:
       - build-and-test:
           filters:
@@ -39,9 +39,6 @@ workflows:
               only:
                 - develop
                 - master
-
-  publish:
-    jobs:
       - publish:
           requires:
             - build-and-test
