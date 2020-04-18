@@ -9,16 +9,22 @@ jobs:
       only:
         - develop
         - master
+    executor:
+      name: node/default
     steps:
       - checkout
-      - run: yarn install
-      - run: lerna run test
-      - run: lerna run build
+      - node/with-cache:
+        steps:
+          - run: yarn install
+          - run: lerna run test
+          - run: lerna run build
 
   publish:
     branches:
       only:
         - master
+    executor:
+      name: node/default
     steps:
       - run: lerna publish --conventional-prerelease --no-changelog
 
@@ -26,12 +32,19 @@ jobs:
     branches:
       only:
         - master
+    executor:
+      name: node/default
     steps:
       - run: git checkout develop
       - run: git merge master
 
 workflows:
-  jobs:
-    - build-and-test
-    - publish
-    - merge-back
+  build-and-test:
+    jobs:
+      - build-and-test
+  publish:
+    jobs:
+      - publish
+  merge-back:
+    jobs:
+      - merge-back
