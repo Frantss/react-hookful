@@ -5,10 +5,6 @@ orbs:
 
 jobs:
   build-and-test:
-    branches:
-      only:
-        - develop
-        - master
     executor:
       name: node/default
     steps:
@@ -20,18 +16,12 @@ jobs:
           - run: lerna run build
 
   publish:
-    branches:
-      only:
-        - master
     executor:
       name: node/default
     steps:
       - run: lerna publish --conventional-prerelease --no-changelog
 
   merge-back:
-    branches:
-      only:
-        - master
     executor:
       name: node/default
     steps:
@@ -42,9 +32,22 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
+      branches:
+        only:
+          - develop
+          - master
+
   publish:
     jobs:
       - publish
-  merge-back:
-    jobs:
+        requires:
+          - build-and-test
+        branches:
+          only:
+            - master
       - merge-back
+        requires:
+          - publish
+        branches:
+          only:
+            - master
