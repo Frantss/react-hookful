@@ -11,19 +11,20 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - attach_workspace:
-                at: ~/repo
             - run: yarn install
             - run: yarn lerna run test
             - run: yarn lerna run build
 
   publish:
+    working_directory: ~/repo
     executor:
       name: node/default
     steps:
       - checkout
       - node/with-cache:
           steps:
+            - attach_workspace:
+                at: ~/repo
             - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
             - run: yarn lerna publish --conventional-prerelease --no-changelog --yes
 
