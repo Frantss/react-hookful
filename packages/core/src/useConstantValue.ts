@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useFreezedCallback } from './useFreezedCallback';
+import { resolveValue } from './utils';
 
 /**
  * Hook to keep a constant state value.
@@ -24,7 +25,7 @@ export const useConstantValue = <T>(value: T | (() => T)): (() => T) => {
   const get = useFreezedCallback(() => {
     if (!reference.current) {
       reference.current = {
-        state: typeof value === 'function' ? (value as Function)() : value,
+        state: resolveValue(value),
       };
     }
 
