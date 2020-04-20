@@ -12,6 +12,9 @@ export interface StorageValue<T> {
   error?: DOMException;
 }
 
+/**
+ * @internal
+ */
 export const useStorage = <T>(
   key: string,
   defaultValue: T | null = null,
