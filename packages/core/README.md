@@ -35,6 +35,7 @@ yarn install @react-hookful/core
 - [useStateObject](#usestateobject) - Like `useState` but for objects, with state built-in merging
 - [useToggle](#usetoggle) - Returns a boolean value with toggler and setters
 - [useCounter](#usecounter) - Returns a numeric value with useful setters.
+- [useConstantValue](#useconstantvalue) - Keeps a constant value through re-renders
 
 ### useAsyncFunction
 
@@ -219,6 +220,39 @@ const Component = () => {
 
   setValue.reset(100);
   console.log(value); // 0
+};
+```
+
+### useConstantValue
+
+```tsx
+useConstantValue<T>(value: T | (() => T)): (() => T)
+```
+
+Hook to keep a constant state value.
+It takes an value or a resolver and maintains a reference to it though re-renders.
+
+Returns a getter for state value so it can be lazily set.
+
+`React.useState` can be used as an alternative although it should be less performing since it relies on reducers.
+
+Should the value change based on dependencies consider `React.useMemo`.
+Should the value be a reference to a function consider `useFreezedCallback`.
+
+#### Example
+
+```jsx
+import { useConstantValue } from 'react-hookful';
+
+const Component = () => {
+  const getValue = useConstantValue('my_value');
+
+  const getValueFromResolver = useConstantValue(() => 'my_value_from_resolver');
+
+  const getExpensiveValue = useConstantValue(() => { /* some expensive computation that resolves the value and will run only once*/ });
+
+  console.log(getValue(); // my_value
+  console.log(getValueFromResolver()); // 'my_value_from_resolver'
 };
 ```
 
