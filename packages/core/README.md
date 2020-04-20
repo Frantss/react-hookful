@@ -34,6 +34,7 @@ yarn install @react-hookful/core
 - [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
 - [useStateObject](#usestateobject) - Like `useState` but for objects, with state built-in merging
 - [useToggle](#usetoggle) - Returns a boolean value with toggler and setters
+- [useCounter](#usecounter) - Returns a numeric value with useful setters.
 
 ### useAsyncFunction
 
@@ -185,6 +186,39 @@ const Component = () => {
 
   setIsLoading.setFalse();
   console.log(isLoading); // false
+};
+```
+
+### `useCounter`
+
+Simple hook to keep a numeric state with some useful setters.
+
+#### `CounterSetter` interface
+
+- `set(value: number | ((prev: number) => number)) => void` - Sets the state to a given value.
+- `inc(value?: number) => void` - Increments the state by a given value. Defaults to `1`.
+- `dec(value?: number) => void` - Decrements the state by a given value. Defaults to `1`.
+- `reset() => void` - Resets the state back to its initial value.
+
+#### Example
+
+```jsx
+import { useCounter } from '@react-hookful/core';
+
+const Component = () => {
+  [value, setValue] = useCounter(0);
+
+  setValue.set(100);
+  console.log(value); // 100
+
+  setValue.inc(5);
+  console.log(value); // 105
+
+  setValue.dec(10);
+  console.log(value); // 95
+
+  setValue.reset(100);
+  console.log(value); // 0
 };
 ```
 
