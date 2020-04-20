@@ -14,6 +14,7 @@ Useful react hooks that help you clean up you functional components.
 
 - [Installation](#installation)
 - [Hooks](#hooks)
+- [Packages](#packages)
 
 ## Installation
 
@@ -186,3 +187,11 @@ const Component = () => {
   console.log(isLoading); // false
 };
 ```
+
+## Packages
+
+For more hooks check one of the other sibling packages.
+
+| Package                                                                  | Version                                                               |
+| ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| [dom](https://github.com/Frantss/react-hookful/tree/master/packages/dom) | ![npm](https://img.shields.io/npm/v/@react-hookful/dom?style=plastic) |
