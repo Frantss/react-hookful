@@ -14,6 +14,7 @@ Useful react DOM-related hooks that help you clean up you functional components.
 
 - [Installation](#installation)
 - [Hooks](#hooks)
+- [Packages](#packages)
 
 ## Installation
 
@@ -27,10 +28,10 @@ yarn install @react-hookful/dom
 
 ## Hooks
 
-- [useLocalStorage](#uselocalstorage) - Provides a hook API to access and manipulate the local storage.
-- [useSessionStorage](#usesessionstorage) - Like `useLocalStorage` but for the session storage.
+- [useLocalStorage](#uselocalstorage-and-usesessionstorage) - Provides a hook API to access and manipulate the local storage.
+- [useSessionStorage](#uselocalstorage-and-usesessionstorage) - Like `useLocalStorage` but for the session storage.
 
-### `useLocalStorage` and `useSessionStore`
+### `useLocalStorage` and `useSessionStorage`
 
 ```tsx
 useLocalStorage<T>(key: string, defaultValue?: T, options?: StorageOptions<T>): StorageValue<T>
@@ -73,3 +74,11 @@ const Component = () => {
 - `get: () => T | null` - Retrieves and returns the value from the store.
 - `set: (value: T | null) => boolean` - Sets the given value to the store. Returns `false` in case of a store error.
 - `error?: DOMException` - If something goes wrong while setting a value the error gets dump in this field.
+
+## Packages
+
+For more hooks check one of the other sibling packages.
+
+| Package                                                                    | Version                                                                |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [core](https://github.com/Frantss/react-hookful/tree/master/packages/core) | ![npm](https://img.shields.io/npm/v/@react-hookful/core?style=plastic) |

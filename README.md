@@ -4,9 +4,10 @@ Useful and generic react hooks.
 
 ## Packages
 
-| Packages                                                                                     | Version                                                              |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [react-hookful](https://github.com/Frantss/react-hookful/tree/master/packages/react-hookful) | ![npm](https://img.shields.io/npm/v/react-hookful?style=flat-square) |
+| Packages                                                                   | Version                                                                |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [core](https://github.com/Frantss/react-hookful/tree/master/packages/core) | ![npm](https://img.shields.io/npm/v/@react-hookful/core?style=plastic) |
+| [dom](https://github.com/Frantss/react-hookful/tree/master/packages/dom)   | ![npm](https://img.shields.io/npm/v/@react-hookful/dom?style=plastic)  |
 
 ## Contribution and Development
 
@@ -14,7 +15,7 @@ Although this is a personal project it is aimed to be as production ready as pos
 
 You may have noticed the repo is structure as a monorepo using lerna. This is so that its easier to separate hooks into different packages based on the dependencies needed.
 
-The idea is to have the main package _react-hookful_ to only be dependent on react. And create new packages for each library, e.g. _react-hookful-redux_ for _react-redux_
+The idea is to have the main package _@react-hookful/core_ to only be dependent on react. And create new packages for each library, e.g. _@react-hookful/redux_ for _react-redux_
 
 If you want to contribute please follow this instructions:
 

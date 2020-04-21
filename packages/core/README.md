@@ -14,6 +14,7 @@ Useful react hooks that help you clean up you functional components.
 
 - [Installation](#installation)
 - [Hooks](#hooks)
+- [Packages](#packages)
 
 ## Installation
 
@@ -33,6 +34,8 @@ yarn install @react-hookful/core
 - [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
 - [useStateObject](#usestateobject) - Like `useState` but for objects, with state built-in merging
 - [useToggle](#usetoggle) - Returns a boolean value with toggler and setters
+- [useCounter](#usecounter) - Returns a numeric value with useful setters.
+- [useConstantValue](#useconstantvalue) - Keeps a constant value through re-renders
 
 ### useAsyncFunction
 
@@ -186,3 +189,77 @@ const Component = () => {
   console.log(isLoading); // false
 };
 ```
+
+### `useCounter`
+
+Simple hook to keep a numeric state with some useful setters.
+
+#### `CounterSetter` interface
+
+- `set(value: number | ((prev: number) => number)) => void` - Sets the state to a given value.
+- `inc(value?: number) => void` - Increments the state by a given value. Defaults to `1`.
+- `dec(value?: number) => void` - Decrements the state by a given value. Defaults to `1`.
+- `reset() => void` - Resets the state back to its initial value.
+
+#### Example
+
+```jsx
+import { useCounter } from '@react-hookful/core';
+
+const Component = () => {
+  [value, setValue] = useCounter(0);
+
+  setValue.set(100);
+  console.log(value); // 100
+
+  setValue.inc(5);
+  console.log(value); // 105
+
+  setValue.dec(10);
+  console.log(value); // 95
+
+  setValue.reset(100);
+  console.log(value); // 0
+};
+```
+
+### useConstantValue
+
+```tsx
+useConstantValue<T>(value: T | (() => T)): (() => T)
+```
+
+Hook to keep a constant state value.
+It takes an value or a resolver and maintains a reference to it though re-renders.
+
+Returns a getter for state value so it can be lazily set.
+
+`React.useState` can be used as an alternative although it should be less performing since it relies on reducers.
+
+Should the value change based on dependencies consider `React.useMemo`.
+Should the value be a reference to a function consider `useFreezedCallback`.
+
+#### Example
+
+```jsx
+import { useConstantValue } from 'react-hookful';
+
+const Component = () => {
+  const getValue = useConstantValue('my_value');
+
+  const getValueFromResolver = useConstantValue(() => 'my_value_from_resolver');
+
+  const getExpensiveValue = useConstantValue(() => { /* some expensive computation that resolves the value and will run only once*/ });
+
+  console.log(getValue(); // my_value
+  console.log(getValueFromResolver()); // 'my_value_from_resolver'
+};
+```
+
+## Packages
+
+For more hooks check one of the other sibling packages.
+
+| Package                                                                  | Version                                                               |
+| ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| [dom](https://github.com/Frantss/react-hookful/tree/master/packages/dom) | ![npm](https://img.shields.io/npm/v/@react-hookful/dom?style=plastic) |
