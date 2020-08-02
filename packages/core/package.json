@@ -18,11 +18,11 @@
   },
   "scripts": {
     "build": "webpack && api-extractor run --local",
-    "lint": "eslint . && prettier . --check",
-    "lint:fix": "eslint . --fix && prettier . --write",
-    "test": "jest test --config ./jest.config.js",
-    "test:watch": "jest test --config ./jest.config.js --watch",
-    "test:coverage": "jest test --config ./jest.config.js --coverage"
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
+    "test": "jest test",
+    "test:watch": "jest test --watch",
+    "test:coverage": "jest test --coverage"
   },
   "peerDependencies": {
     "react": "^16.x"

@@ -1,16 +1,5 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
-  "projectFolder": ".",
-  "mainEntryPointFilePath": "dist/index.d.ts",
-  "apiReport": {
-    "enabled": false
-  },
-  "docModel": {
-    "enabled": false
-  },
-  "dtsRollup": {
-    "enabled": true,
-    "publicTrimmedFilePath": "dist/index.public.d.ts",
-    "untrimmedFilePath": "dist/index.d.ts"
-  }
+  "extends": "../../api-extractor.json",
+  "projectFolder": "."
 }

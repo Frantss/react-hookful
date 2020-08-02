@@ -1,16 +1,20 @@
 {
   "folders": [
     {
-      "name": "⚙️ react-hooks-packages",
+      "name": "✨ react-hooks-packages",
       "path": "."
     },
     {
-      "name": "📦 core",
+      "name": "📦 @react-hookful/core",
       "path": "packages/core"
     },
     {
-      "name": "📦 dom",
+      "name": "📦 @react-hookful/dom",
       "path": "packages/dom"
+    },
+    {
+      "name": "📦 @react-hookful/template",
+      "path": "packages/template"
     }
   ],
   "settings": {}
