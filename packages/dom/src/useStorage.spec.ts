@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useStorage } from '../src/useStorage';
+import { useStorage } from './useStorage';
 
 const key = 'test';
 const expected = { arumba: 'arumba', fernir: 'fernir' };
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const parser = JSON.parse as (arg?: string | null) => any;
 const serializer = JSON.stringify;
 const serializedExpected = serializer(expected);
