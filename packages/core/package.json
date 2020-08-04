@@ -20,9 +20,9 @@
     "build": "webpack && api-extractor run --local",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
-    "test": "jest test",
-    "test:watch": "jest test --watch",
-    "test:coverage": "jest test --coverage"
+    "test": "jest --verbose",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "peerDependencies": {
     "react": "^16.x"

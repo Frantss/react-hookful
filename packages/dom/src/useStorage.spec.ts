@@ -22,8 +22,6 @@ describe('useStorage', () => {
     expect(parser(localStorage.getItem(key))).toStrictEqual(expected);
   });
 
-  it('', () => {});
-
   it('handles null values', () => {
     const { result } = renderHook(() => useStorage(key, null, localStorage));
     expect(result.current.get()).toBeNull();

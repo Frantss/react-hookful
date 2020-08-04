@@ -20,10 +20,10 @@
   "scripts": {
     "build": "webpack && api-extractor run --local",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "eslint . --fix && prettier . --write",
-    "test": "jest test --config ./jest.config.js",
-    "test:watch": "jest test --watch",
-    "test:coverage": "jest test --coverage"
+    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
+    "test": "jest --verbose",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "peerDependencies": {
     "react": "^16.x"

@@ -12,6 +12,12 @@
     "url": "https://github.com/Frantss/react-hookful/issues"
   },
   "homepage": "https://github.com/Frantss/react-hookful#readme",
+  "scripts": {
+    "build": "lerna run --parallel build",
+    "test": "lerna run --parallel test",
+    "lint": "lerna run --parallel lint",
+    "lint:fix": "lerna run --parallel lint:fix"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
@@ -24,6 +30,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.5",
     "lerna": "^3.20.2",
