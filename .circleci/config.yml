@@ -43,7 +43,6 @@ jobs:
       - run: git checkout develop
       - run: git merge master
       - run: git add .
-      - run: git commit -m "chore: merge back from last publish"
       - run: git push origin
 
 workflows:
