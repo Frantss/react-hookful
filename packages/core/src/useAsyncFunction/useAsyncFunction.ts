@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react';
-import { useStateObject } from './useStateObject';
+import { useStateObject } from '../useStateObject';
 
-import { AsyncFunction } from './types';
+import { AsyncFunction } from '../types';
 
 export interface AsyncFunctionState<T> {
   data: T;

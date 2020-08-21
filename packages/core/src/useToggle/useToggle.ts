@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useFreezedCallback } from './useFreezedCallback';
+import { useFreezedCallback } from '../useFreezedCallback';
 
 /** Setters of the state maintained by `useToggle */
 export interface TogglerSetter {

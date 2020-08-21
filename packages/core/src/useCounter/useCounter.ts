@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useFreezedCallback } from './useFreezedCallback';
-import { resolveValue } from './utils';
+import { useFreezedCallback } from '../useFreezedCallback';
+import { resolveValue } from '../utils';
 
 /**
  * Signature of the setters provided by `useCounter`

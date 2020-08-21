@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useAsyncFunction } from '../src/useAsyncFunction';
+import { useAsyncFunction } from './useAsyncFunction';
 
 describe('useAsyncFunction', () => {
   it('calls the async function', async () => {

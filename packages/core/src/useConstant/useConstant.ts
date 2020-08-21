@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import { useFreezedCallback } from './useFreezedCallback';
-import { resolveValue } from './utils';
+import { useFreezedCallback } from '../useFreezedCallback';
+import { resolveValue } from '../utils';
 
 /**
  * Hook to keep a constant state value.
@@ -19,7 +19,7 @@ import { resolveValue } from './utils';
  *
  * @public
  */
-export const useConstantValue = <T>(value: T | (() => T)): (() => T) => {
+export const useConstant = <T>(value: T | (() => T)): (() => T) => {
   const reference = useRef<{ state: T }>();
 
   const get = useFreezedCallback(() => {
