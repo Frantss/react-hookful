@@ -166,6 +166,7 @@ The return value is a tuple with the value, toggler, and a object with the `true
 #### `TogglerSetter` interface
 
 - `toggle: () => void` - Toggles the boolean value to its opposite.
+- `set: (arg: boolean | () => boolean) => void` - Setter similar to that of `useState`
 - `setTrue: () => void` - Sets the value to `true`.
 - `setFalse: () => void` - Sets the value to `false`.
 
@@ -187,6 +188,9 @@ const Component = () => {
 
   setIsLoading.setFalse();
   console.log(isLoading); // false
+
+  setIsLoading.set(true);
+  console.log(isLoading); // true
 };
 ```
 

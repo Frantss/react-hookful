@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useEffectOnce } from '../src/useEffectOnce';
+import { useEffectOnce } from './useEffectOnce';
 
 describe('useEffectOnce', () => {
   it('runs the side effect only once', () => {

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { GenericFunction } from './types';
+import { GenericFunction } from '../types';
 
 /**
  * Hook that freezed a given callback, so it is only created once in the components life.

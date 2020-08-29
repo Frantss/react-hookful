@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useCounter } from '../src/useCounter';
+import { useCounter } from './useCounter';
 
 const initial = 0;
 

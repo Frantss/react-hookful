@@ -4,6 +4,6 @@ export * from './useStateObject';
 export * from './useAsyncFunction';
 export * from './useToggle';
 export * from './useCounter';
-export * from './useConstantValue';
+export * from './useConstant';
 
 export * from './types';

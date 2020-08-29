@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useFreezedCallback } from './useFreezedCallback';
+import { useState, useCallback } from 'react';
 
 /** Setters of the state maintained by `useStateObject */
 export interface StateObjectSetter {
@@ -22,12 +21,13 @@ export interface StateObjectSetter {
 export const useStateObject = (initialState: object): [object, StateObjectSetter] => {
   const [state, set] = useState(initialState);
 
-  const merge = useFreezedCallback((newState: object) =>
-    set(prevState => ({ ...prevState, ...newState })),
+  const merge = useCallback(
+    (newState: object) => set(prevState => ({ ...prevState, ...newState })),
+    [set],
   );
 
-  const reset = useFreezedCallback(() => set(initialState));
-  const clear = useFreezedCallback(() => set({}));
+  const reset = useCallback(() => set(initialState), [set, initialState]);
+  const clear = useCallback(() => set({}), [set]);
 
   return [state, { set, merge, reset, clear }];
 };

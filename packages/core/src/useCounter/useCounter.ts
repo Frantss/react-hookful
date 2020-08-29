@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { useFreezedCallback } from './useFreezedCallback';
-import { resolveValue } from './utils';
+import { useState, useCallback } from 'react';
+import { resolveValue } from '../utils';
 
 /**
  * Signature of the setters provided by `useCounter`
@@ -29,15 +28,17 @@ export interface CounterSetter {
 export const useCounter = (initialValue: number | (() => number)): [number, CounterSetter] => {
   const [value, set] = useState(initialValue);
 
-  const inc = useFreezedCallback((increment = 1): void =>
-    set((prevValue: number) => prevValue + increment),
+  const inc = useCallback(
+    (increment = 1): void => set((prevValue: number) => prevValue + increment),
+    [set],
   );
 
-  const dec = useFreezedCallback((decrement = 1): void =>
-    set((prevValue: number) => prevValue - decrement),
+  const dec = useCallback(
+    (decrement = 1): void => set((prevValue: number) => prevValue - decrement),
+    [set],
   );
 
-  const reset = useFreezedCallback((): void => set(resolveValue(initialValue)));
+  const reset = useCallback((): void => set(resolveValue(initialValue)), [set, initialValue]);
 
   return [value, { set, inc, dec, reset }];
 };
