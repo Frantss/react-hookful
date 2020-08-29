@@ -26,6 +26,7 @@ jobs:
             - attach_workspace:
                 at: ~/repo
             - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+
             - run: yarn install
             - run: yarn build
 
@@ -43,21 +44,25 @@ jobs:
       - run: git config user.name $GIT_USERNAME
       - run: git checkout develop
       - run: git merge master
-      - run: git add .
-      - run: git commit -m "chore(all) merge back from last publish"
       - run: git push origin
 
 workflows:
   version: 2
-  build-and-publish:
+  build-and-test:
     jobs:
       - build-and-test:
           filters:
             branches:
               only:
                 - develop
-                - master
                 - /^feat(ure)?\/.+/
+  build-and-publish:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only:
+                - master
       - publish:
           requires:
             - build-and-test
