@@ -1,6 +1,6 @@
 {
   "name": "@react-hookful/core",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "Useful react hooks that help you clean up you functional components.",
   "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/core",
   "main": "dist/index.js",
