@@ -43,7 +43,7 @@ jobs:
       - run: git config user.email $GIT_EMAIL
       - run: git config user.name $GIT_USERNAME
       - run: git checkout develop
-      - run: git merge master
+      - run: git merge master --ff --message 'Merge back release'
       - run: git push origin
 
 workflows:

@@ -1,36 +1,48 @@
-module.exports = {
-  mode: 'production',
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-  devtool: 'source-map',
+module.exports = [
+  {
+    mode: 'production',
 
-  output: {
-    filename: 'index.js',
-  },
+    devtool: 'source-map',
 
-  resolve: {
-    extensions: ['.ts', '.tsx'],
-  },
+    output: {
+      filename: 'index.js',
+      libraryTarget: 'umd',
+    },
 
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-          },
-        ],
+    resolve: {
+      extensions: ['.ts', '.tsx'],
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'ts-loader',
+            },
+          ],
+        },
+        {
+          enforce: 'pre',
+          test: /\.jsx?$/,
+          loader: 'source-map-loader',
+        },
+      ],
+    },
+
+    plugins: [new CleanWebpackPlugin()],
+
+    externals: {
+      react: {
+        commonjs: 'react',
+        commonjs2: 'react',
+        umd: 'react',
+        amd: 'react',
       },
-      {
-        enforce: 'pre',
-        test: /\.jsx?$/,
-        loader: 'source-map-loader',
-      },
-    ],
+    },
   },
-
-  externals: {
-    react: 'commonjs2 React',
-  },
-};
+];

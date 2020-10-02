@@ -1,6 +1,6 @@
 {
   "name": "@react-hookful/dom",
-  "version": "0.1.0-alpha.5",
+  "version": "0.1.0-alpha.4",
   "description": "Useful react DOM-related hooks that help you clean up you functional components.",
   "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/dom",
   "main": "dist/index.js",
@@ -33,6 +33,7 @@
     "@types/jest": "^25.2.1",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "clean-webpack-plugin": "^3.0.0",
     "jest": "^25.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
