@@ -39,6 +39,7 @@
     "terser-webpack-plugin": "4.2.3",
     "webpack": "^5.1.3"
   },
+  "sideEffects": false,
   "workspaces": {
     "packages": [
       "packages/*"

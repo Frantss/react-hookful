@@ -1,7 +1,12 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const defaultConfig = require('../../webpack.default.config');
+const defaultWebpackConfig = require('../../webpack.default.config');
+const { resolve } = require('path');
 
 module.exports = {
-  ...defaultConfig,
-  plugins: [...defaultConfig.plugins, new BundleAnalyzerPlugin()],
+  ...defaultWebpackConfig,
+  plugins: [...defaultWebpackConfig.plugins, new BundleAnalyzerPlugin()],
+  output: {
+    ...defaultWebpackConfig.output,
+    path: resolve(__dirname, 'dist'),
+  },
 };
