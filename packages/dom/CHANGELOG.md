@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.8](https://github.com/Frantss/react-hookful/tree/master/packages/dom/compare/@react-hookful/dom@0.1.0-alpha.7...@react-hookful/dom@0.1.0-alpha.8) (2020-10-17)
+
+
+### Features
+
+* **all:** truly enabled tree shaking ([92e3da4](https://github.com/Frantss/react-hookful/tree/master/packages/dom/commit/92e3da4f5fd9a08095ec845776663452e151258a))
+
+
+
+
+
 # [0.1.0-alpha.7](https://github.com/Frantss/react-hookful/tree/master/packages/dom/compare/@react-hookful/dom@0.1.0-alpha.6...@react-hookful/dom@0.1.0-alpha.7) (2020-10-17)
 
 

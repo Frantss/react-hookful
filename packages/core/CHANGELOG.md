@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.6](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.5...@react-hookful/core@0.1.0-alpha.6) (2020-10-17)
+
+
+### Features
+
+* **all:** truly enabled tree shaking ([92e3da4](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/92e3da4f5fd9a08095ec845776663452e151258a))
+
+
+
+
+
 # [0.1.0-alpha.5](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.4...@react-hookful/core@0.1.0-alpha.5) (2020-10-17)
 
 
