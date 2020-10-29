@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.8](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.7...@react-hookful/core@0.1.0-alpha.8) (2020-10-29)
+
+
+### Features
+
+* **all:** set sideEffects to false ([a865972](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/a865972e7ac53ad7a83d882acfe8a9cf241f9d42))
+
+
+
+
+
 # [0.1.0-alpha.7](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.6...@react-hookful/core@0.1.0-alpha.7) (2020-10-29)
 
 

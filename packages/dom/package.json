@@ -1,6 +1,6 @@
 {
   "name": "@react-hookful/dom",
-  "version": "0.1.0-alpha.9",
+  "version": "0.1.0-alpha.10",
   "description": "Useful react DOM-related hooks that help you clean up you functional components.",
   "keywords": [
     "react",
