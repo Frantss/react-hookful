@@ -2,9 +2,17 @@
   "name": "@react-hookful/template",
   "version": "0.1.0-alpha.1",
   "description": "Useful react hooks that help you clean up you functional components.",
-  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/core",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/template",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "umd:main": "dist/index.umd.js",
+  "exports": {
+    "umd": "./dist/index.umd.js",
+    "require": "./dist/index.cjs.js",
+    "import": "./dist/index.esm.js"
+  },
+  "type": "module",
+  "types": "dist/index.public.d.ts",
   "license": "MIT",
   "keywords": [
     "react",
@@ -18,8 +26,7 @@
     "access": "restricted"
   },
   "scripts": {
-    "build": "webpack && api-extractor run --local",
-    "analyze": "webpack --config ./webpack.analyze.config.js ",
+        "build": "rm -rf dist && rollup -c && api-extractor run --local",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "test": "jest --verbose",
@@ -27,7 +34,7 @@
     "test:coverage": "jest --coverage"
   },
   "peerDependencies": {
-    "react": "^16.x"
+    "react": "^16 || ^17"
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.2.1",
@@ -37,17 +44,19 @@
     "jest": "^25.3.0",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
-    "source-map-loader": "^0.2.4",
+    "rollup": "^2.32.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.28.0",
     "ts-jest": "^25.3.1",
-    "ts-loader": "^6.2.2",
-    "typescript": "^3.8.3",
-    "webpack-bundle-analyzer": "^3.9.0",
-    "webpack-cli": "^3.3.11"
+    "typescript": "^3.8.3"
   },
   "files": [
-    "dist/index.d.ts",
-    "dist/index.js",
-    "dist/index.js.map",
-    "src"
+    "dist/index.public.d.ts",
+    "dist/index.cjs.js",
+    "dist/index.cjs.js.map",
+    "dist/index.esm.js",
+    "dist/index.esm.js.map",
+    "dist/index.umd.js",
+    "dist/index.umd.js.map"
   ]
 }

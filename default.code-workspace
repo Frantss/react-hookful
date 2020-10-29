@@ -5,15 +5,15 @@
       "path": "."
     },
     {
-      "name": "📦 @react-hookful/core",
+      "name": "📦 core",
       "path": "packages/core"
     },
     {
-      "name": "📦 @react-hookful/dom",
+      "name": "📦 dom",
       "path": "packages/dom"
     },
     {
-      "name": "📦 @react-hookful/template",
+      "name": "📦 template",
       "path": "packages/template"
     }
   ],

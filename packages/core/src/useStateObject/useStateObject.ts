@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react';
 
-/** Setters of the state maintained by `useStateObject */
+/** Setters of the state maintained by `useStateObject`
+ * @public
+ */
 export interface StateObjectSetter {
   /** Merges the current state with the `arg` object. */
   merge: (arg: object) => void;
@@ -17,6 +19,7 @@ export interface StateObjectSetter {
  *
  * @param initialState - Initial state value.
  * @returns A tuple with the current state, and the setters.
+ * @public
  */
 export const useStateObject = (initialState: object): [object, StateObjectSetter] => {
   const [state, set] = useState(initialState);

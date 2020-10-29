@@ -3,6 +3,9 @@ import { useStateObject } from '../useStateObject';
 
 import { AsyncFunction } from '../types';
 
+/**
+ * @public
+ */
 export interface AsyncFunctionState<T> {
   data: T;
   loading: boolean;
@@ -13,13 +16,13 @@ export interface AsyncFunctionState<T> {
  * Useful hook for running side effects and monitor their current state.
  * `loading` flag is initialized to `true` and changes to `false` once `asyncFn` has returned.
  *
- * @param asyncFn Async function that will be run .
- * @param args Array of arguments for that `asyncFn` takes.
- * @param dependencies `asyncFn` will run each time the values of this array change.
+ * @param asyncFn - Async function that will be run .
+ * @param args - Array of arguments for that `asyncFn` takes.
+ * @param dependencies - `asyncFn` will run each time the values of this array change.
  *
- * @typeParam T - Return type of `asyncFn`.
  *
  * @returns Object holding the current status (`loading`) and either the resulting data or an error.
+ * @public
  */
 export const useAsyncFunction = <T>(
   asyncFn: AsyncFunction<T>,

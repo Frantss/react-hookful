@@ -3,7 +3,6 @@ import { resolveValue } from '../utils';
 
 /**
  * Signature of the setters provided by `useCounter`
- *
  * @public
  */
 export interface CounterSetter {
@@ -22,7 +21,6 @@ export interface CounterSetter {
  *
  * @param initialValue - Either the initial value or a function that resolves to it for lazy loading.
  * @returns A tuple with the state value, and an object with its setters.
- *
  * @public
  */
 export const useCounter = (initialValue: number | (() => number)): [number, CounterSetter] => {

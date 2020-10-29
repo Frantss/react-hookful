@@ -15,8 +15,6 @@ import { resolveValue } from '../utils';
  *
  * @param value - Either the state value or its resolver
  * @returns A getter for the state value
- * @typeParam T - Type of the state
- *
  * @public
  */
 export const useConstant = <T>(value: T | (() => T)): (() => T) => {
