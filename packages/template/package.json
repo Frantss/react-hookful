@@ -1,6 +1,6 @@
 {
   "name": "@react-hookful/template",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "Useful react hooks that help you clean up you functional components.",
   "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/template",
   "main": "dist/index.cjs.js",
@@ -26,7 +26,7 @@
     "access": "restricted"
   },
   "scripts": {
-        "build": "rm -rf dist && rollup -c && api-extractor run --local",
+    "build": "rm -rf dist && rollup -c && api-extractor run --local",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "test": "jest --verbose",

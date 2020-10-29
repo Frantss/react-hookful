@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.7](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.6...@react-hookful/core@0.1.0-alpha.7) (2020-10-29)
+
+
+### Features
+
+* **all:** changed webpack fro rollup ([bf02862](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/bf02862386c9c3f71650bc4da96ca843543ccde3))
+
+
+
+
+
 # [0.1.0-alpha.6](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.5...@react-hookful/core@0.1.0-alpha.6) (2020-10-17)
 
 
