@@ -2,39 +2,40 @@
   "name": "@react-hookful/dom",
   "version": "0.1.0-alpha.9",
   "description": "Useful react DOM-related hooks that help you clean up you functional components.",
-  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/dom",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "umd:main": "dist/index.umd.js",
-  "exports": {
-    "umd": "./dist/index.umd.js",
-    "require": "./dist/index.cjs.js",
-    "import": "./dist/index.esm.js"
-  },
-  "type": "module",
-  "types": "dist/index.public.d.ts",
-  "license": "MIT",
   "keywords": [
     "react",
     "hooks",
     "dom"
   ],
-  "authors": [
-    "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
-  ],
-  "publishConfig": {
-    "access": "public"
+  "repository": "https://github.com/Frantss/react-hookful/tree/master/packages/dom",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "import": "./dist/index.esm.js",
+    "require": "./dist/index.cjs.js",
+    "umd": "./dist/index.umd.js"
   },
+  "main": "dist/index.cjs.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.public.d.ts",
+  "files": [
+    "dist/index.public.d.ts",
+    "dist/index.cjs.js",
+    "dist/index.cjs.js.map",
+    "dist/index.esm.js",
+    "dist/index.esm.js.map",
+    "dist/index.umd.js",
+    "dist/index.umd.js.map"
+  ],
   "scripts": {
     "build": "rm -rf dist && rollup -c && api-extractor run --local",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "test": "jest --verbose",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
-  },
-  "peerDependencies": {
-    "react": "^16 || ^17"
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.2.1",
@@ -51,13 +52,13 @@
     "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
   },
-  "files": [
-    "dist/index.public.d.ts",
-    "dist/index.cjs.js",
-    "dist/index.cjs.js.map",
-    "dist/index.esm.js",
-    "dist/index.esm.js.map",
-    "dist/index.umd.js",
-    "dist/index.umd.js.map"
+  "peerDependencies": {
+    "react": "^16 || ^17"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
   ]
 }
