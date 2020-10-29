@@ -1,22 +1,24 @@
 {
-  "private": true,
   "name": "react-hooks-packages",
   "version": "0.0.0",
+  "private": true,
   "description": "Useful react hooks",
-  "repository": "git+https://github.com/Frantss/react-hookful.git",
-  "authors": [
-    "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
-  ],
-  "license": "MIT",
+  "homepage": "https://github.com/Frantss/react-hookful#readme",
   "bugs": {
     "url": "https://github.com/Frantss/react-hookful/issues"
   },
-  "homepage": "https://github.com/Frantss/react-hookful#readme",
+  "repository": "git+https://github.com/Frantss/react-hookful.git",
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "build": "lerna run build",
-    "test": "lerna run --parallel test",
     "lint": "lerna run --parallel lint",
-    "lint:fix": "lerna run --parallel lint:fix"
+    "lint:fix": "lerna run --parallel lint:fix",
+    "test": "lerna run --parallel test"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -36,10 +38,7 @@
     "lerna": "^3.20.2",
     "prettier": "^2.0.4"
   },
-  "sideEffects": false,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  }
+  "authors": [
+    "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
+  ]
 }
