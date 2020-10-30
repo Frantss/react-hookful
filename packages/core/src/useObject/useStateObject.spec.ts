@@ -1,17 +1,17 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useStateObject } from './useStateObject';
+import { useObject } from './useObject';
 
-describe('useStateObject', () => {
+describe('useObject', () => {
   it('should respect initial state', () => {
     const initialState = { a: 'a', b: 'b' };
 
-    const { result } = renderHook(() => useStateObject(initialState));
+    const { result } = renderHook(() => useObject(initialState));
 
     expect(result.current[0]).toStrictEqual(initialState);
   });
 
   it('merges the state with a given input', () => {
-    const { result } = renderHook(() => useStateObject({ a: 'a', b: 'c' }));
+    const { result } = renderHook(() => useObject({ a: 'a', b: 'c' }));
 
     act(() => {
       result.current[1].merge({ b: 'b' });
@@ -21,7 +21,7 @@ describe('useStateObject', () => {
   });
 
   it('sets the state with a given input', () => {
-    const { result } = renderHook(() => useStateObject({ a: 'a', b: 'b' }));
+    const { result } = renderHook(() => useObject({ a: 'a', b: 'b' }));
 
     act(() => {
       result.current[1].set({ a: 'b', b: 'a' });
@@ -31,7 +31,7 @@ describe('useStateObject', () => {
   });
 
   it('sets the state using a reference to the current one', () => {
-    const { result } = renderHook(() => useStateObject({ a: 'a' }));
+    const { result } = renderHook(() => useObject({ a: 'a' }));
 
     act(() => {
       result.current[1].set(prevState => ({
@@ -44,7 +44,7 @@ describe('useStateObject', () => {
   });
 
   it('resets the state', () => {
-    const { result } = renderHook(() => useStateObject({ a: 'a' }));
+    const { result } = renderHook(() => useObject({ a: 'a' }));
 
     act(() => {
       result.current[1].set({ a: 'b' });

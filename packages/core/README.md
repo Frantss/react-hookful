@@ -32,7 +32,7 @@ yarn install @react-hookful/core
 - [useEffectOnce](#useeffectonce) - A semantic replacement for `useEffect` with
   an empty dependencies array
 - [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
-- [useStateObject](#usestateobject) - Like `useState` but for objects, with state built-in merging
+- [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
 - [useToggle](#usetoggle) - Returns a boolean value with toggler and setters
 - [useCounter](#usecounter) - Returns a numeric value with useful setters.
 - [useConstantValue](#useconstantvalue) - Keeps a constant value through re-renders
@@ -113,10 +113,10 @@ const Component = () => {
 };
 ```
 
-### useStateObject
+### useObject
 
 ```tsx
-useStateObject(initialState: object): [object, StateObjectSetter]
+useObject(initialState: object): [object, StateObjectSetter]
 ```
 
 Hook for creating an object with several setters for ease of use. Like state merging and resetting.
@@ -124,16 +124,16 @@ Hook for creating an object with several setters for ease of use. Like state mer
 #### `StateObjectSetter` interface
 
 - `merge: (arg: object) => void` - Merges the current state with the `arg` object.
-- `set: (arg: object | ((currState: object) => object)) => void` - State setter, the same you would get with `React.useState`.
+- `set: React.Dispatch<React.SetStateAction<T>>` - State setter, the same you would get with `React.useState`.
 - `reset: () => void` - Resets the state back to the initial one.
 
 #### Example
 
 ```jsx
-import { useStateObject } from '@react-hookful/core';
+import { useObject } from '@react-hookful/core';
 
 const Component = () => {
-  const [state, setState] = useStateObject({ username: 'arumba', password: '123' });
+  const [state, setState] = useObject({ username: 'arumba', password: '123' });
 
   setState.merge({ username: 'fernir' });
   console.log(state); // {username: 'fernir', password: '123'}

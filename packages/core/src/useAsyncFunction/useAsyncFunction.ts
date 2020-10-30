@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { useStateObject } from '../useStateObject';
+import { useObject } from '../useObject';
 
 import { AsyncFunction } from '../types';
 
@@ -27,7 +27,7 @@ export const useAsyncFunction = <T>(
   args: unknown[] = [],
   dependencies: unknown[] = [],
 ): AsyncFunctionState<T> => {
-  const [state, setState] = useStateObject<AsyncFunctionState<T>>({
+  const [state, setState] = useObject<AsyncFunctionState<T>>({
     data: undefined,
     loading: true,
     error: undefined,

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { useFreezedCallback } from './useFreezedCallback';
 
-describe('useStateObject', () => {
+describe('useFreezedCallback', () => {
   it('respects initial state', () => {
     const callback = (): number => 0;
 
