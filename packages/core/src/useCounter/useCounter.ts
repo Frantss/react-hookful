@@ -19,24 +19,29 @@ export interface CounterSetter {
 /**
  * Simple hook to keep a numeric state with some useful setters.
  *
- * @param initialValue - Either the initial value or a function that resolves to it for lazy loading.
- * @returns A tuple with the state value, and an object with its setters.
  * @public
+ * @param initialState - Either the initial value or a function that resolves to it for lazy loading.
+ * @returns A tuple with the state value, and an object with its setters.
  */
-export const useCounter = (initialValue: number | (() => number)): [number, CounterSetter] => {
-  const [value, set] = useState(initialValue);
+export const useCounter = (
+  initialState: number | (() => number),
+): [number, CounterSetter] => {
+  const [value, set] = useState(initialState);
 
   const inc = useCallback(
-    (increment = 1): void => set((prevValue: number) => prevValue + increment),
+    (increment = 1): void => set((currState: number) => currState + increment),
     [set],
   );
 
   const dec = useCallback(
-    (decrement = 1): void => set((prevValue: number) => prevValue - decrement),
+    (decrement = 1): void => set((currState: number) => currState - decrement),
     [set],
   );
 
-  const reset = useCallback((): void => set(resolveValue(initialValue)), [set, initialValue]);
+  const reset = useCallback((): void => set(resolveValue(initialState)), [
+    set,
+    initialState,
+  ]);
 
   return [value, { set, inc, dec, reset }];
 };

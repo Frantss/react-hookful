@@ -91,7 +91,7 @@ const Component = () => {
 ### useFreezedCallback
 
 ```tsx
-useFreezedCallback<T>(callback: GenericFunction<T>): GenericFunction<T>]
+useFreezedCallback<T extends GenericFunction<T>>(callback: T): T
 ```
 
 Hook that freezed a given callback, so it is only created once in the components life.
@@ -124,9 +124,8 @@ Hook for creating an object with several setters for ease of use. Like state mer
 #### `StateObjectSetter` interface
 
 - `merge: (arg: object) => void` - Merges the current state with the `arg` object.
-- `set: (arg: object | ((prevState: object) => object)) => void` - State setter, the same you would get with `React.useState`.
+- `set: (arg: object | ((currState: object) => object)) => void` - State setter, the same you would get with `React.useState`.
 - `reset: () => void` - Resets the state back to the initial one.
-- `clear: () => void` - Sets the state to an empty object (`{}`).
 
 #### Example
 
@@ -134,22 +133,20 @@ Hook for creating an object with several setters for ease of use. Like state mer
 import { useStateObject } from '@react-hookful/core';
 
 const Component = () => {
-  const [state, setState] = useStateObject({ username: 'arumba' });
+  const [state, setState] = useStateObject({ username: 'arumba', password: '123' });
 
-  setState.merge({ username: 'fernir', password: '123' });
+  setState.merge({ username: 'fernir' });
   console.log(state); // {username: 'fernir', password: '123'}
 
-  setState.set({ password: 'password' });
-  console.log(state); // {username: 'fernir', password: 'password'}
+  setState.set({ username: 'something', password: 'password' });
+  console.log(state); // {username: 'something', password: 'password'}
 
-  setState.set(prevState => ({ ...prevState, username: 'sofi' }));
+  setState.set(currState => ({ ...currState, username: 'sofi' })); // Same as `.merge`
   console.log(state); // {username: 'sofi', password: 'password'}
 
   setState.reset();
-  console.log(state); // { username: 'arumba'}
+  console.log(state); // { username: 'arumba', password: '123' }
 
-  setState.clear();
-  console.log(state); // {}
 };
 ```
 
@@ -222,7 +219,10 @@ const Component = () => {
   setValue.dec(10);
   console.log(value); // 95
 
-  setValue.reset(100);
+  setValue.inc();
+  console.log(value); // 96
+
+  setValue.reset();
   console.log(value); // 0
 };
 ```
@@ -255,7 +255,7 @@ const Component = () => {
 
   const getExpensiveValue = useConstantValue(() => { /* some expensive computation that resolves the value and will run only once*/ });
 
-  console.log(getValue(); // my_value
+  console.log(getValue()); // my_value
   console.log(getValueFromResolver()); // 'my_value_from_resolver'
 };
 ```

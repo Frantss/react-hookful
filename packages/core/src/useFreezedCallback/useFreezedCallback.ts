@@ -9,12 +9,14 @@ import { GenericFunction } from '../types';
  *
  * Should the callback ever be recalculated see `React.useCallback` and `React.useMemo`.
  *
+ * @public
  * @param callback - The callback to freeze.
  * @returns The freezed callback.
- * @public
  */
-export const useFreezedCallback = <T>(callback: GenericFunction<T>): GenericFunction<T> => {
-  const reference = useRef<GenericFunction<T>>();
+export const useFreezedCallback = <T extends GenericFunction<T>>(
+  callback: T,
+): T => {
+  const reference = useRef<T>();
 
   if (!reference.current) {
     reference.current = callback;

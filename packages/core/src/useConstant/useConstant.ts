@@ -13,9 +13,9 @@ import { resolveValue } from '../utils';
  * Should the value change based on dependencies consider `React.useMemo`.
  * Should the value be a reference to a function consider `useFreezedCallback`.
  *
+ * @public
  * @param value - Either the state value or its resolver
  * @returns A getter for the state value
- * @public
  */
 export const useConstant = <T>(value: T | (() => T)): (() => T) => {
   const reference = useRef<{ state: T }>();

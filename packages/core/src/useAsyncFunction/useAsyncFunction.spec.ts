@@ -14,21 +14,25 @@ describe('useAsyncFunction', () => {
   it('correctly resolves async function', async () => {
     const asyncFn = jest.fn(() => Promise.resolve(0));
 
-    const { result, waitForNextUpdate } = renderHook(() => useAsyncFunction(asyncFn));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useAsyncFunction(asyncFn),
+    );
 
     await waitForNextUpdate();
     expect(result.current.data).toBe(0);
     expect(result.current.loading).toBe(false);
-    expect(result.current.error).toBeNull();
+    expect(result.current.error).toBeUndefined();
   });
 
   it('correctly rejects async function', async () => {
     const asyncFn = jest.fn(() => Promise.reject(0));
 
-    const { result, waitForNextUpdate } = renderHook(() => useAsyncFunction(asyncFn));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useAsyncFunction(asyncFn),
+    );
 
     await waitForNextUpdate();
-    expect(result.current.data).toBeNull();
+    expect(result.current.data).toBeUndefined();
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toBe(0);
   });
@@ -36,7 +40,9 @@ describe('useAsyncFunction', () => {
   it('correctly changes loading status', async () => {
     const asyncFn = jest.fn(() => Promise.resolve(0));
 
-    const { result, waitForNextUpdate } = renderHook(() => useAsyncFunction(asyncFn));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useAsyncFunction(asyncFn),
+    );
 
     expect(result.current.loading).toBe(true);
     await waitForNextUpdate();
@@ -47,7 +53,9 @@ describe('useAsyncFunction', () => {
     const asyncFn = jest.fn(arg => Promise.resolve(arg));
     const argument = 0;
 
-    const { result, waitForNextUpdate } = renderHook(() => useAsyncFunction(asyncFn, [argument]));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useAsyncFunction(asyncFn, [argument]),
+    );
 
     await waitForNextUpdate();
     expect(asyncFn).toBeCalledWith(argument);
