@@ -1,5 +1,5 @@
 export default {
-  coveragePathIgnorePatterns: ['/node_modules/', '/index.(j|t)sx?/'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/index.[jt]sx?/'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },

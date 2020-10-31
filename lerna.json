@@ -8,6 +8,11 @@
       "allowBranch": "master",
       "message": "chore(release): publish [skip ci]",
       "conventionalCommits": true
+    },
+    "version": {
+      "allowBranch": "develop",
+      "conventionalCommits": true,
+      "noPush": true
     }
   },
   "ignoreChanges": ["**/*.{spec,test}.*", "**/*.md"]

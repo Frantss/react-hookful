@@ -4,5 +4,5 @@
     "outDir": "./build"
   },
   "include": ["./src/**/*"],
-  "exclude": ["node_modules", "*.config.js"]
+  "exclude": ["node_modules", "*.config.c?js"]
 }

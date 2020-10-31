@@ -33,6 +33,7 @@ yarn install @react-hookful/core
   an empty dependencies array
 - [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
 - [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
+- [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
 - [useToggle](#usetoggle) - Returns a boolean value with toggler and setters
 - [useCounter](#usecounter) - Returns a numeric value with useful setters.
 - [useConstantValue](#useconstantvalue) - Keeps a constant value through re-renders
@@ -116,15 +117,15 @@ const Component = () => {
 ### useObject
 
 ```tsx
-useObject(initialState: object): [object, StateObjectSetter]
+useObject<T extends object>(initialState: T): [T, StateObjectSetter<T>]
 ```
 
 Hook for creating an object with several setters for ease of use. Like state merging and resetting.
 
 #### `StateObjectSetter` interface
 
-- `merge: (arg: object) => void` - Merges the current state with the `arg` object.
-- `set: React.Dispatch<React.SetStateAction<T>>` - State setter, the same you would get with `React.useState`.
+- `merge: <T>(arg: Partial<T>) => void` - Merges the current state with the `arg` object.
+- `set: (arg: T | ((currState: T) => T)) => void` - State setter, the same you would get with `React.useState`.
 - `reset: () => void` - Resets the state back to the initial one.
 
 #### Example
@@ -149,6 +150,27 @@ const Component = () => {
 
 };
 ```
+
+### useArray
+
+```tsx
+useArray<T>(initialState: T[] | (() => T[])): [T[], ArraySetter<T>]
+```
+
+Hook for creating an array with several setters for ease of use.
+
+#### `ArraySetter` interface
+
+  `set` - Sets the state, the same you would get with `React.useState`;
+  `append: (element: T) => void` - Appends an element to the state
+  `prepend: (element: T) => void` - Prepends an element to the state
+  `pop: () => T` - Removes and returns the last element from the state
+  `shift: () => T` - Removes and returns the first element from the state 
+  `concat: (elements: T[]) => void` - Concatenates a given array to the state;
+  `transform` - Allows you to transform each element of the state, with the same API as `Array.prototype.map`
+  `filter` - Like `Array.prototype.filter`
+  `reset: () => void` - Resets the state back to the initial value
+  `clear: () => void` - Sets the state to `[]`
 
 ### useToggle
 
