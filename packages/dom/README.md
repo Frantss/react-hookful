@@ -7,6 +7,8 @@
 
   <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/@react-hookful/dom?style=flat-square">
 
+  <img alt="Codecov branch" src="https://img.shields.io/codecov/c/github/frantss/react-hookful/master?logo=codecov&style=flat-square&token=e30335a5a6a3484d9055b1e319ccc029&flag=dom">
+
   <img alt="NPM" src="https://img.shields.io/npm/l/@react-hookful/dom?style=flat-square">
 
   <img alt="npm" src="https://img.shields.io/npm/dm/@react-hookful/dom?style=flat-square">
