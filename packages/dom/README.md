@@ -2,10 +2,18 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@react-hookful/dom">
-    <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@react-hookful/dom?style=plastic">
+    <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@react-hookful/dom?style=flat-square&logo=npm">
   </a>
 
-  <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/@react-hookful/dom?style=plastic">
+  <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/@react-hookful/dom?style=flat-square">
+
+  <img alt="NPM" src="https://img.shields.io/npm/l/@react-hookful/dom?style=flat-square">
+
+  <img alt="npm" src="https://img.shields.io/npm/dm/@react-hookful/dom?style=flat-square">
+
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Frantss/react-hookful/master?label=master&logo=circleci&style=flat-square&token=c97c78f1040c038c4857e8bbc6ab5a4acc310455">
+
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Frantss/react-hookful/develop?label=develop&logo=circleci&style=flat-square&token=c97c78f1040c038c4857e8bbc6ab5a4acc310455">
 </p>
 
 Useful react DOM-related hooks that help you clean up you functional components.

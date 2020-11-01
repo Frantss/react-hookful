@@ -1,0 +1,26 @@
+name: Test coverage report
+on: [push, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Install dependencies
+        run: yarn install
+      - name: Run tests and collect coverage
+        run: yarn lerna run test:coverage
+      - name: Core
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./packages/core/coverage/coverage-final.json
+          flags: core
+          name: codecov-hookful
+      - name: Dom
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./packages/dom/coverage/coverage-final.json
+          flags: dom
+          name: codecov-hookful

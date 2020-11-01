@@ -10,7 +10,7 @@
       "conventionalCommits": true
     },
     "version": {
-      "allowBranch": "develop",
+      "allowBranch": ["develop", "master"],
       "conventionalCommits": true,
       "noPush": true
     }
