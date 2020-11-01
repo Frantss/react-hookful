@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.9...@react-hookful/core@0.2.0) (2020-11-01)
+
+
+### Bug Fixes
+
+* **core:** renamed useStateObject to useObject ([7ba7ae0](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/7ba7ae09ba8cedac00f83924ba8813cb2277d798))
+
+
+### Features
+
+* **core:** added useArray ([79861c1](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/79861c10bf1ce3a6dc9693e116fc3e3c2754769b))
+* **core:** improved typings ([ba1edc1](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/ba1edc17dd8740783daa507a05be815176f84675))
+* **core:** removed useAsyncFunction ([991990e](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/991990e19e7a22a460a997c4558dbf09979e2aa2))
+
+
+
+
+
 # [0.1.0-alpha.9](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.7...@react-hookful/core@0.1.0-alpha.9) (2020-10-29)
 
 

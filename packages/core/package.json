@@ -1,6 +1,6 @@
 {
   "name": "@react-hookful/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Useful react hooks that help you clean up you functional components.",
   "keywords": [
     "react",
@@ -58,6 +58,5 @@
   },
   "authors": [
     "Frantss Bongiovanni <frantss.bongiovanni@gmail.com>"
-  ],
-  "dependencies": {}
+  ]
 }
