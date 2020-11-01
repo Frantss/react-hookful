@@ -2,10 +2,18 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@react-hookful/core">
-    <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@react-hookful/core?style=plastic">
+    <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@react-hookful/core?style=flat-square&logo=npm">
   </a>
 
-  <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/@react-hookful/core?style=plastic">
+  <img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/@react-hookful/core?style=flat-square">
+
+  <img alt="NPM" src="https://img.shields.io/npm/l/@react-hookful/core?style=flat-square">
+
+  <img alt="npm" src="https://img.shields.io/npm/dm/@react-hookful/core?style=flat-square">
+
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Frantss/react-hookful/master?label=master&logo=circleci&style=flat-square&token=c97c78f1040c038c4857e8bbc6ab5a4acc310455">
+
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/Frantss/react-hookful/develop?label=develop&logo=circleci&style=flat-square&token=c97c78f1040c038c4857e8bbc6ab5a4acc310455">
 </p>
 
 Useful react hooks that help you clean up you functional components.
@@ -23,12 +31,11 @@ Useful react hooks that help you clean up you functional components.
 npm install @react-hookful/core
 
 # Yarn
-yarn install @react-hookful/core
+yarn add @react-hookful/core
 ```
 
 ## Hooks
 
-- [useAsyncFunction](#useasyncfunction) - Runs an async function and keeps track of its result, status, and error
 - [useEffectOnce](#useeffectonce) - A semantic replacement for `useEffect` with
   an empty dependencies array
 - [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
@@ -37,36 +44,6 @@ yarn install @react-hookful/core
 - [useToggle](#usetoggle) - Returns a boolean value with toggler and setters
 - [useCounter](#usecounter) - Returns a numeric value with useful setters.
 - [useConstantValue](#useconstantvalue) - Keeps a constant value through re-renders
-
-### useAsyncFunction
-
-```tsx
-useAsyncFunction<T>(asyncFn: AsyncFunction<T>, args: unknown[] = [], dependencies: unknown[] = []): AsyncFunctionState<T>
-```
-
-Hook for running side effects and monitor their current state.
-
-`loading` flag is initialized to `true` and changes to `false` once `asyncFn` has been resolved.
-
-#### `AsyncFunctionState<T>` interface
-
-- data: T - The result of the async function passed as an argument.
-- loading: boolean - Indicates whether the async function is still running.
-- error: unknown - In case an error occurs while executing the function it is stored in this value.
-
-#### Example
-
-```jsx
-import { useAsyncFunction } from '@react-hookful/core';
-
-const Component = () => {
-  const { data, loading, error } = useAsyncFunction(() => {
-    /* some asynchronous function */
-  });
-
-  const result = useAsyncFunction(/* some asynchronous function reference */);
-};
-```
 
 ### useEffectOnce
 

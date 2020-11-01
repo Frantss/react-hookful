@@ -1,6 +1,6 @@
 # react-hookful
 
-Useful and generic react hooks.
+Semantic and useful react hooks.
 
 ## Packages
 
@@ -27,4 +27,4 @@ If you want to contribute please follow this instructions:
 
 ## License
 
-All the files in the repository are subject to the MIT license. Please refer to the License file at the root of the project to know more about it.
+All the files in the repository are subject to the `MIT` license. Please refer to the License file at the root of the project to know more about it.
