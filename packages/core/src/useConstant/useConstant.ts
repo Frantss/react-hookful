@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useFreezedCallback } from '../useFreezedCallback';
+import { useConstantCallback } from '../useConstantCallback';
 import { resolveValue } from '../utils';
 
 /**
@@ -20,7 +20,7 @@ import { resolveValue } from '../utils';
 export const useConstant = <T>(value: T | (() => T)): (() => T) => {
   const reference = useRef<{ state: T }>();
 
-  const get = useFreezedCallback(() => {
+  const get = useConstantCallback(() => {
     if (!reference.current) {
       reference.current = {
         state: resolveValue(value),

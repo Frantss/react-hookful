@@ -1,4 +1,4 @@
-export * from './useFreezedCallback';
+export * from './useConstantCallback';
 export * from './useMountEffect';
 export * from './useUnmountEffect';
 export * from './useRerenderEffect';

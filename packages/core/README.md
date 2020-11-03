@@ -40,7 +40,8 @@ yarn add @react-hookful/core
 
 - [useMountEffect](#useMountEffect) - A semantic replacement for `useEffect` to run effect on mount
 - [useUnmountEffect](#useUnmountEffect) - A semantic replacement for `useEffect` to run effect on unmount
-- [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
+- [useRerenderEffect](#useRerenderEffect) - A semantic replacement for `useEffect` to run effect on re-renders, skipping mount
+- [useConstantCallback](#useConstantCallback) - Returns a constant version of the function passed as argument
 - [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
 - [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
 - [useBoolean](#useBoolean) - Returns a boolean value with toggler and setters
@@ -110,13 +111,13 @@ const Component = () => {
 };
 ```
 
-### useFreezedCallback
+### useConstantCallback
 
 ```tsx
-useFreezedCallback<T extends GenericFunction<T>>(callback: T): T
+useConstantCallback<T extends GenericFunction<T>>(callback: T): T
 ```
 
-Hook that freezed a given callback, so it is only created once in the components life.
+Hook that freezes a given callback, so it is only created once in the components life.
 It ensures the return function is always the same.
 
 Useful for optimizations where otherwise constant functions are recalculated every re-render
@@ -126,10 +127,10 @@ Should the callback ever be recalculated see `React.useCallback` and `React.useM
 #### Example
 
 ```jsx
-import { useFreezedCallback } from '@react-hookful/core';
+import { useConstantCallback } from '@react-hookful/core';
 
 const Component = () => {
-  const freezedCb = useFreezedCallback(() => {
+  const constantCb = useConstantCallback(() => {
     /* some function that doesn't need to be recalculated */
   });
 };
@@ -286,7 +287,7 @@ Returns a getter for state value so it can be lazily set.
 `React.useState` can be used as an alternative although it should be less performing since it relies on reducers.
 
 Should the value change based on dependencies consider `React.useMemo`.
-Should the value be a reference to a function consider `useFreezedCallback`.
+Should the value be a reference to a function consider `useConstantCallback`.
 
 #### Example
 
