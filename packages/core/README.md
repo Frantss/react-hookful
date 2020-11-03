@@ -43,7 +43,7 @@ yarn add @react-hookful/core
 - [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
 - [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
 - [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
-- [useToggle](#usetoggle) - Returns a boolean value with toggler and setters
+- [useBoolean](#usetoggle) - Returns a boolean value with toggler and setters
 - [useCounter](#usecounter) - Returns a numeric value with useful setters.
 - [useConstantValue](#useconstantvalue) - Keeps a constant value through re-renders
 
@@ -151,40 +151,40 @@ Hook for creating an array with several setters for ease of use.
   `reset: () => void` - Resets the state back to the initial value
   `clear: () => void` - Sets the state to `[]`
 
-### useToggle
+### useBoolean
 
 ```tsx
-useToggle(initialValue: boolean | (() => boolean)): [boolean, TogglerSetter]
+useBoolean(initialValue: boolean | (() => boolean)): [boolean, BooleanSetter]
 ```
 
 Hook that stores a boolean value, and provides logic for toggling and setting the value.
 
 The return value is a tuple with the value, toggler, and a object with the `true` and `false` setters.
 
-#### `TogglerSetter` interface
+#### `BooleanSetter` interface
 
-- `toggle: () => void` - Toggles the boolean value to its opposite.
 - `set: (arg: boolean | () => boolean) => void` - Setter similar to that of `useState`
-- `setTrue: () => void` - Sets the value to `true`.
-- `setFalse: () => void` - Sets the value to `false`.
+- `toggle: () => void` - Toggles the boolean value to its opposite.
+- `on: () => void` - Sets the value to `true`.
+- `off: () => void` - Sets the value to `false`.
 
 #### Example
 
 ```jsx
-import { useToggle } from '@react-hooks/core';
+import { useBoolean } from '@react-hooks/core';
 
 const Component = () => {
-  const [isLoading, setIsLoading] = useToggle(true);
+  const [isLoading, setIsLoading] = useBoolean(true);
 
   console.log(isLoading); // true
 
   setIsLoading.toggle();
   console.log(isLoading); // false
 
-  setIsLoading.setTrue();
+  setIsLoading.on();
   console.log(isLoading); // true
 
-  setIsLoading.setFalse();
+  setIsLoading.off();
   console.log(isLoading); // false
 
   setIsLoading.set(true);
