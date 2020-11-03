@@ -1,11 +1,11 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useEffectOnce } from './useEffectOnce';
+import { useMountEffect } from './useMountEffect';
 
 describe('useEffectOnce', () => {
   it('runs the side effect only once', () => {
     const sideEffect = jest.fn();
 
-    const { rerender } = renderHook(() => useEffectOnce(sideEffect));
+    const { rerender } = renderHook(() => useMountEffect(sideEffect));
 
     expect(sideEffect).toBeCalledTimes(1);
     rerender();

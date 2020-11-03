@@ -1,5 +1,5 @@
 export * from './useFreezedCallback';
-export * from './useEffectOnce';
+export * from './useMountEffect';
 export * from './useObject';
 export * from './useBoolean';
 export * from './useNumber';

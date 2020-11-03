@@ -38,19 +38,19 @@ yarn add @react-hookful/core
 
 ## Hooks
 
-- [useEffectOnce](#useeffectonce) - A semantic replacement for `useEffect` with
+- [useMountEffect](#useMountEffect) - A semantic replacement for `useEffect` with
   an empty dependencies array
 - [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
 - [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
 - [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
-- [useBoolean](#usetoggle) - Returns a boolean value with toggler and setters
-- [useNumber](#usecounter) - Returns a numeric value with useful setters.
-- [useConstantValue](#useconstantvalue) - Keeps a constant value through re-renders
+- [useBoolean](#useBoolean) - Returns a boolean value with toggler and setters
+- [useNumber](#useNumber) - Returns a numeric value with useful setters.
+- [useConstantValue](#useConstantValue) - Keeps a constant value through re-renders
 
-### useEffectOnce
+### useMountEffect
 
 ```tsx
-useEffectOnce(effect: EffectCallback): void
+useMountEffect(effect: EffectCallback): void
 ```
 
 This hook its a simple wrapper of `React.useEffect` with and empty dependencies array.
@@ -59,10 +59,10 @@ It is a way of clearly stating your intentions though semantics.
 #### Example
 
 ```jsx
-import { useEffectOnce } from '@react-hookful/core';
+import { useMountEffect } from '@react-hookful/core';
 
 const Component = () => {
-  useEffectOnce(() => {
+  useMountEffect(() => {
     /* your side effects here */
   });
 };
