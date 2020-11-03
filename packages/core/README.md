@@ -42,11 +42,12 @@ yarn add @react-hookful/core
 - [useUnmountEffect](#useUnmountEffect) - A semantic replacement for `useEffect` to run effect on unmount
 - [useRerenderEffect](#useRerenderEffect) - A semantic replacement for `useEffect` to run effect on re-renders, skipping mount
 - [useConstantCallback](#useConstantCallback) - Returns a constant version of the function passed as argument
+- [useConstant](#useConstant) - Keeps a constant value through re-renders
+- [usePrevious](#usePrevious) - Keeps a reference to the previous value of a given variable
 - [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
 - [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
 - [useBoolean](#useBoolean) - Returns a boolean value with toggler and setters
 - [useNumber](#useNumber) - Returns a numeric value with useful setters.
-- [useConstant](#useConstant) - Keeps a constant value through re-renders
 
 ### useMountEffect
 
