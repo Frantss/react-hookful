@@ -1,59 +1,64 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { useConstant } from './useConstant';
 
+const renderTestHook = <T>(value: T | (() => T)) =>
+  renderHook(() => useConstant(value));
+
 describe('useConstantValue', () => {
-  it('returns the state value', () => {
-    const { result } = renderHook(() => useConstant('fernir'));
-    expect(result.current()).toBe('fernir');
+  describe('sets values', () => {
+    it('from value', () => {
+      const expected = 'fernir';
+      const { result } = renderTestHook(expected);
+
+      expect(result.current).toBe(expected);
+    });
+
+    it('from resolver', () => {
+      const expected = 'fernir';
+      const { result } = renderTestHook(() => expected);
+
+      expect(result.current).toBe(expected);
+    });
   });
 
-  it('returns the state value from resolver', () => {
-    const { result } = renderHook(() => useConstant(() => 'fernir'));
-    expect(result.current()).toBe('fernir');
-  });
+  it('value remains constant', () => {
+    const { result, rerender } = renderTestHook(() => Math.random());
 
-  it('maintains the value constant through re-renders', () => {
-    const { result, rerender } = renderHook(() => useConstant(() => Math.random()));
-
-    const first = result.current();
+    const expected = result.current;
     rerender();
-    expect(result.current()).toBe(first);
     rerender();
-    expect(result.current()).toBe(first);
+
+    expect(result.current).toBe(expected);
   });
 
-  it("resolver isn't called multiple times", () => {
+  it('resolver is called once', () => {
     const resolver = jest.fn();
-    const { result, rerender } = renderHook(() => useConstant(resolver));
-    expect(resolver).toBeCalledTimes(0);
+    renderTestHook(resolver);
 
-    result.current();
-    expect(resolver).toBeCalledTimes(1);
-
-    result.current();
-    expect(resolver).toBeCalledTimes(1);
-
-    rerender();
     expect(resolver).toBeCalledTimes(1);
   });
 
-  it('handles undefined values', () => {
-    const hook1 = renderHook(() => useConstant(undefined));
-    expect(hook1.result.current).toBeDefined();
-    expect(hook1.result.current()).toBeUndefined();
+  describe('allows undefined', () => {
+    it('from value', () => {
+      const { result } = renderTestHook(undefined);
+      expect(result.current).toBeUndefined();
+    });
 
-    const hook2 = renderHook(() => useConstant(() => undefined));
-    expect(hook2.result.current).toBeDefined();
-    expect(hook2.result.current()).toBeUndefined();
+    it('from resolver', () => {
+      const { result } = renderTestHook(() => undefined);
+      expect(result.current).toBeUndefined();
+    });
   });
 
-  it('handles null values', () => {
-    const hook1 = renderHook(() => useConstant(null));
-    expect(hook1.result.current).toBeDefined();
-    expect(hook1.result.current()).toBeNull();
+  describe('allows null', () => {
+    it('from value', () => {
+      const { result } = renderTestHook(null);
+      expect(result.current).toBeNull();
+    });
 
-    const hook2 = renderHook(() => useConstant(() => null));
-    expect(hook2.result.current).toBeDefined();
-    expect(hook2.result.current()).toBeNull();
+    it('from resolver', () => {
+      const { result } = renderTestHook(() => null);
+      expect(result.current).toBeNull();
+    });
   });
 });

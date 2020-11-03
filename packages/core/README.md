@@ -285,18 +285,16 @@ It initializes to `undefined`.
 ### useConstant
 
 ```tsx
-useConstant<T>(value: T | (() => T)): (() => T)
+useConstant<T>(value: T | (() => T)): T)
 ```
 
-Hook to keep a constant state value.
+Keeps a constant state value.
 It takes an value or a resolver and maintains a reference to it though re-renders.
-
-Returns a getter for state value so it can be lazily set.
 
 `React.useState` can be used as an alternative although it should be less performing since it relies on reducers.
 
 Should the value change based on dependencies consider `React.useMemo`.
-Should the value be a reference to a function consider `useConstantCallback`.
+Should the value be a reference to a function consider `useFreezedCallback`.
 
 #### Example
 
@@ -304,14 +302,14 @@ Should the value be a reference to a function consider `useConstantCallback`.
 import { useConstant } from 'react-hookful';
 
 const Component = () => {
-  const getValue = useConstant('my_value');
+  const value = useConstant('my_value');
 
-  const getValueFromResolver = useConstant(() => 'my_value_from_resolver');
+  const valueFromResolver = useConstant(() => 'my_value_from_resolver');
 
-  const getExpensiveValue = useConstant(() => { /* some expensive computation that resolves the value and will run only once*/ });
+  const expensiveValue = useConstant(() => { /* some expensive computation that resolves the value and will run only once*/ });
 
-  console.log(getValue()); // my_value
-  console.log(getValueFromResolver()); // 'my_value_from_resolver'
+  console.log(value); // my_value
+  console.log(valueFromResolver); // 'my_value_from_resolver'
 };
 ```
 
