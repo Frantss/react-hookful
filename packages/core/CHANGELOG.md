@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.2.0...@react-hookful/core@0.3.0) (2020-11-03)
+
+
+### Bug Fixes
+
+* **all:** Add code coverage to readme ([9c6d09d](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/9c6d09dcb40eeed8c785aa9ac06d9f071ead039b))
+
+
+### Features
+
+* **core:** add usePrevious ([b3384a9](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/b3384a99b48b30494261b47a7ea368cebfdf8fd8))
+* **core:** add useRerenderEffect ([593eb4d](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/593eb4d83b8b1f19b280effa37812f93b8ca63c1))
+* **core:** Add useUnmountEffect ([f2de0cb](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/f2de0cb26e49853b722313e0efcdb337608e0918))
+* **core:** rename useCounter to useNumber ([eb102e5](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/eb102e5f87ebd65cb3f0e51ddfd54bbb7476525a))
+* **core:** rename useEffectOnce to useMountEffect ([6255934](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/625593470384cbffbf7944dfcf51a71ee264f891))
+* **core:** rename useFreezedCallback to useConstantCallback ([e50bbf6](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/e50bbf61e3b8ec79d1c292dd7159fdf0543bb675))
+* **core:** rename useToggle to useBoolean ([40b127d](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/40b127d0213854abab058a4548daf56da903cf89))
+* **core:** useConstant now returns a value ([2351d8a](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/2351d8ab64914aa41b7950b01ed35e5688da05ff))
+
+
+
+
+
 # [0.2.0](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.1.0-alpha.9...@react-hookful/core@0.2.0) (2020-11-01)
 
 
