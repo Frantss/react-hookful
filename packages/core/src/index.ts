@@ -6,6 +6,7 @@ export * from './useObject';
 export * from './useBoolean';
 export * from './useNumber';
 export * from './useConstant';
+export * from './usePrevious';
 export * from './useArray';
 
 export * from './types';

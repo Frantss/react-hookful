@@ -46,7 +46,7 @@ yarn add @react-hookful/core
 - [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
 - [useBoolean](#useBoolean) - Returns a boolean value with toggler and setters
 - [useNumber](#useNumber) - Returns a numeric value with useful setters.
-- [useConstantValue](#useConstantValue) - Keeps a constant value through re-renders
+- [useConstant](#useConstant) - Keeps a constant value through re-renders
 
 ### useMountEffect
 
@@ -273,10 +273,19 @@ const Component = () => {
 };
 ```
 
-### useConstantValue
+### usePrevious
 
 ```tsx
-useConstantValue<T>(value: T | (() => T)): (() => T)
+usePrevious<T>(value: T): T | undefined
+```
+
+Keeps track of the previous state of a given variable.
+It initializes to `undefined`.
+
+### useConstant
+
+```tsx
+useConstant<T>(value: T | (() => T)): (() => T)
 ```
 
 Hook to keep a constant state value.
@@ -292,14 +301,14 @@ Should the value be a reference to a function consider `useConstantCallback`.
 #### Example
 
 ```jsx
-import { useConstantValue } from 'react-hookful';
+import { useConstant } from 'react-hookful';
 
 const Component = () => {
-  const getValue = useConstantValue('my_value');
+  const getValue = useConstant('my_value');
 
-  const getValueFromResolver = useConstantValue(() => 'my_value_from_resolver');
+  const getValueFromResolver = useConstant(() => 'my_value_from_resolver');
 
-  const getExpensiveValue = useConstantValue(() => { /* some expensive computation that resolves the value and will run only once*/ });
+  const getExpensiveValue = useConstant(() => { /* some expensive computation that resolves the value and will run only once*/ });
 
   console.log(getValue()); // my_value
   console.log(getValueFromResolver()); // 'my_value_from_resolver'
