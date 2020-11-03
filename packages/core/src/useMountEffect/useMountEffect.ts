@@ -1,11 +1,11 @@
 import { useEffect, EffectCallback } from 'react';
 
 /**
- * This hook its a simple wrapper of `React.useEffect` with and empty dependencies array.
- * It runs the effect only once, at mount time.
+ * Semantic wrapper on `React.useEffect`.
+ * Runs a given effect only once, on mount (first render).
  *
  * @public
- * @param effect - Imperative function that can return a cleanup function.
+ * @param effect - Effect to be run on mount
  */
 export const useMountEffect = (effect: EffectCallback) => {
   useEffect(effect, []); // eslint-disable-line

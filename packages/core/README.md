@@ -38,8 +38,8 @@ yarn add @react-hookful/core
 
 ## Hooks
 
-- [useMountEffect](#useMountEffect) - A semantic replacement for `useEffect` with
-  an empty dependencies array
+- [useMountEffect](#useMountEffect) - A semantic replacement for `useEffect` to run effect on mount
+- [useUnmountEffect](#useUnmountEffect) - A semantic replacement for `useEffect` to run effect on unmount
 - [useFreezedCallback](#usefreezedcallback) - Returns a constant version of the function passed as argument
 - [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
 - [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
@@ -53,8 +53,8 @@ yarn add @react-hookful/core
 useMountEffect(effect: EffectCallback): void
 ```
 
-This hook its a simple wrapper of `React.useEffect` with and empty dependencies array.
-It is a way of clearly stating your intentions though semantics.
+Semantic wrapper on `React.useEffect`.
+Runs a given effect only once, on mount (first render).
 
 #### Example
 
@@ -64,6 +64,27 @@ import { useMountEffect } from '@react-hookful/core';
 const Component = () => {
   useMountEffect(() => {
     /* your side effects here */
+  });
+};
+```
+
+### useUnmountEffect
+
+```tsx
+useUnmountEffect(effect: () => void, deps?: any[])
+```
+
+Semantic wrapper on `React.useEffect`.
+Runs the a given cleanup function on unmount time.
+
+#### Example
+
+```jsx
+import { useUnmountEffect } from '@react-hookful/core';
+
+const Component = () => {
+  useUnmountEffect(() => {
+    /* your cleanup effects here */
   });
 };
 ```
