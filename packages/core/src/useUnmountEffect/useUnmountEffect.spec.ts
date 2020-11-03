@@ -1,15 +1,15 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { useUnmountEffect } from './useUnmountEffect';
 
-const renderTestHook = (effect: () => void, deps?: any[]) =>
-  renderHook(() => useUnmountEffect(effect, deps));
+const renderTestHook = (effect: () => void) =>
+  renderHook(() => useUnmountEffect(effect));
 
-describe('useEffectOnce', () => {
+describe('useUnmountEffect', () => {
   describe('runs on', () => {
     it('unmount', () => {
       const effect = jest.fn();
 
-      const { unmount } = renderTestHook(effect, []);
+      const { unmount } = renderTestHook(effect);
       unmount();
 
       expect(effect).toBeCalledTimes(1);
@@ -25,7 +25,7 @@ describe('useEffectOnce', () => {
       expect(effect).toBeCalledTimes(0);
     });
 
-    it('subsequent rerender', () => {
+    it('rerender', () => {
       const effect = jest.fn();
 
       const { rerender } = renderTestHook(effect);

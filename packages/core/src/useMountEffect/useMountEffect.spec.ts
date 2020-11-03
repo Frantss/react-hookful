@@ -1,14 +1,52 @@
 import { renderHook } from '@testing-library/react-hooks';
+import { EffectCallback } from 'react';
 import { useMountEffect } from './useMountEffect';
 
+const renderTestHook = (effect: EffectCallback) =>
+  renderHook(() => useMountEffect(effect));
+
 describe('useEffectOnce', () => {
-  it('runs the side effect only once', () => {
-    const sideEffect = jest.fn();
+  describe('runs onces on', () => {
+    it('mount', () => {
+      const effect = jest.fn();
 
-    const { rerender } = renderHook(() => useMountEffect(sideEffect));
+      renderTestHook(effect);
 
-    expect(sideEffect).toBeCalledTimes(1);
+      expect(effect).toBeCalledTimes(1);
+    });
+  });
+
+  describe("doesn't run more than once on", () => {
+    it('unmount', () => {
+      const effect = jest.fn();
+
+      const { unmount } = renderTestHook(effect);
+      unmount();
+
+      expect(effect).toBeCalledTimes(1);
+    });
+
+    it('rerender', () => {
+      const effect = jest.fn();
+
+      const { rerender } = renderTestHook(effect);
+
+      rerender();
+      rerender();
+      rerender();
+      expect(effect).toBeCalledTimes(1);
+    });
+  });
+
+  it('runs cleanup', () => {
+    const cleanup = jest.fn();
+    const effect = jest.fn(() => cleanup);
+
+    const { unmount, rerender } = renderTestHook(effect);
     rerender();
-    expect(sideEffect).toBeCalledTimes(1);
+    unmount();
+
+    expect(effect).toBeCalledTimes(1);
+    expect(cleanup).toBeCalledTimes(1);
   });
 });

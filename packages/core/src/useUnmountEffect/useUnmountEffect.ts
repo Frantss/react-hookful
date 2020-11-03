@@ -7,6 +7,6 @@ import { useEffect } from 'react';
  * @public
  * @param effect - Function that is run on unmount time.
  */
-export const useUnmountEffect = (effect: () => void, deps?: any[]) => {
-  useEffect(() => effect, deps ?? []); // eslint-disable-line
+export const useUnmountEffect = (effect: () => void) => {
+  useEffect(() => effect, []); // eslint-disable-line
 };

@@ -68,10 +68,31 @@ const Component = () => {
 };
 ```
 
+### useRerenderEffect
+
+```tsx
+useRerenderEffect(effect: EffectCallback, deps?: any[])
+```
+
+Semantic wrapper on `React.useEffect`.
+Runs the a given effect only on re-renders, skipping mount time.
+
+#### Example
+
+```jsx
+import { useRerenderEffect } from '@react-hookful/core';
+
+const Component = () => {
+  useRerenderEffect(() => {
+    /* your side effect here */
+  }, [/* dependencies here */]);
+};
+```
+
 ### useUnmountEffect
 
 ```tsx
-useUnmountEffect(effect: () => void, deps?: any[])
+useUnmountEffect(effect: () => void)
 ```
 
 Semantic wrapper on `React.useEffect`.
