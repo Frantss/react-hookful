@@ -44,7 +44,7 @@ yarn add @react-hookful/core
 - [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
 - [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
 - [useBoolean](#usetoggle) - Returns a boolean value with toggler and setters
-- [useCounter](#usecounter) - Returns a numeric value with useful setters.
+- [useNumber](#usecounter) - Returns a numeric value with useful setters.
 - [useConstantValue](#useconstantvalue) - Keeps a constant value through re-renders
 
 ### useEffectOnce
@@ -192,24 +192,26 @@ const Component = () => {
 };
 ```
 
-### `useCounter`
+### `useNumber`
 
 Simple hook to keep a numeric state with some useful setters.
 
-#### `CounterSetter` interface
+#### `NumberSetter` interface
 
 - `set(value: number | ((prev: number) => number)) => void` - Sets the state to a given value.
 - `inc(value?: number) => void` - Increments the state by a given value. Defaults to `1`.
 - `dec(value?: number) => void` - Decrements the state by a given value. Defaults to `1`.
+- `times(value: number) => void` - Multiplies the state by a given value.
+- `divide(value: number) => void` - Divides the state by a given value.
 - `reset() => void` - Resets the state back to its initial value.
 
 #### Example
 
 ```jsx
-import { useCounter } from '@react-hookful/core';
+import { useNumber } from '@react-hookful/core';
 
 const Component = () => {
-  [value, setValue] = useCounter(0);
+  [value, setValue] = useNumber(0);
 
   setValue.set(100);
   console.log(value); // 100
