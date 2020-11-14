@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/Frantss/react-hookful/tree/master/packages/dom/compare/@react-hookful/dom@0.1.1...@react-hookful/dom@0.2.0) (2020-11-14)
+
+
+### Bug Fixes
+
+* **all:** Add code coverage to readme ([9c6d09d](https://github.com/Frantss/react-hookful/tree/master/packages/dom/commit/9c6d09dcb40eeed8c785aa9ac06d9f071ead039b))
+
+
+### Features
+
+* **all:** add babel to compile to es5 ([3a779ef](https://github.com/Frantss/react-hookful/tree/master/packages/dom/commit/3a779ef1eb1305c6e6a0639c2ea10885453f7d11))
+
+
+
+
+
 ## [0.1.1](https://github.com/Frantss/react-hookful/tree/master/packages/dom/compare/@react-hookful/dom@0.1.0-alpha.11...@react-hookful/dom@0.1.1) (2020-11-01)
 
 **Note:** Version bump only for package @react-hookful/dom

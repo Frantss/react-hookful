@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.3.0...@react-hookful/core@0.4.0) (2020-11-14)
+
+
+### Features
+
+* **all:** add babel to compile to es5 ([3a779ef](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/3a779ef1eb1305c6e6a0639c2ea10885453f7d11))
+
+
+
+
+
 # [0.3.0](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.2.0...@react-hookful/core@0.3.0) (2020-11-03)
 
 
