@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, Dispatch } from 'react';
 import { resolveValue } from '../utils';
 
 /** Setters of the state maintained by `useObject`
@@ -8,7 +8,7 @@ export interface ObjectSetter<T extends object> {
   /** Merges the current state with the `arg` object. */
   merge: (arg: Partial<T> | ((currState: T) => Partial<T>)) => void;
   /**  State setter, the same you would get with `React.useState`. */
-  set: React.Dispatch<React.SetStateAction<T>>;
+  set: Dispatch<React.SetStateAction<T>>;
   /** Resets the state back to the initial one. */
   reset: () => void;
 }
@@ -21,17 +21,23 @@ export interface ObjectSetter<T extends object> {
  * @public
  */
 export const useObject = <T extends object>(
-  initialState: T,
+  initialState: T | (() => T),
 ): [T, ObjectSetter<T>] => {
-  const [state, set] = useState(initialState);
+  const [state, set] = useState<T>(initialState);
 
-  const merge = useCallback(
-    (newState: Partial<T> | ((currState: T) => Partial<T>)) =>
-      set(currState => ({ ...currState, ...resolveValue(newState) })),
+  const merge: ObjectSetter<T>['merge'] = useCallback(
+    newState =>
+      set(currState => ({
+        ...currState,
+        ...resolveValue(newState, [currState]),
+      })),
     [set],
   );
 
-  const reset = useCallback(() => set(initialState), [set, initialState]);
+  const reset: ObjectSetter<T>['reset'] = useCallback(() => set(initialState), [
+    set,
+    initialState,
+  ]);
 
   return [state, { set, merge, reset }];
 };
