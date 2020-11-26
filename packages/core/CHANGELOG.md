@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.4.0...@react-hookful/core@0.4.1) (2020-11-26)
+
+
+### Bug Fixes
+
+* **core:** add deps array to useUnmountEffect ([d4a7a50](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/d4a7a50e83e340b42bba8dc5e8cdef921432577a))
+
+
+
+
+
 # [0.4.0](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.3.0...@react-hookful/core@0.4.0) (2020-11-14)
 
 
