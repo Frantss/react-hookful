@@ -6,6 +6,7 @@ import { EffectCallback, useEffect, useRef } from 'react';
  *
  * @public
  * @param effect - Function that is run on each re-render.
+ * @param deps - If present, effect will only activate if the values in the list change.
  */
 export const useRerenderEffect = (effect: EffectCallback, deps?: any[]) => {
   const mounted = useRef(false);
