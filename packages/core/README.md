@@ -94,7 +94,7 @@ const Component = () => {
 ### useUnmountEffect
 
 ```tsx
-useUnmountEffect(effect: () => void)
+useUnmountEffect(effect: () => void, deps?: any[])
 ```
 
 Semantic wrapper on `React.useEffect`.
@@ -108,7 +108,7 @@ import { useUnmountEffect } from '@react-hookful/core';
 const Component = () => {
   useUnmountEffect(() => {
     /* your cleanup effects here */
-  });
+  }, [/* dependecies here */]);
 };
 ```
 
