@@ -38,16 +38,17 @@ yarn add @react-hookful/core
 
 ## Hooks
 
-- [useMountEffect](#useMountEffect) - A semantic replacement for `useEffect` to run effect on mount
-- [useUnmountEffect](#useUnmountEffect) - A semantic replacement for `useEffect` to run effect on unmount
-- [useRerenderEffect](#useRerenderEffect) - A semantic replacement for `useEffect` to run effect on re-renders, skipping mount
-- [useConstantCallback](#useConstantCallback) - Returns a constant version of the function passed as argument
-- [useConstant](#useConstant) - Keeps a constant value through re-renders
-- [usePrevious](#usePrevious) - Keeps a reference to the previous value of a given variable
-- [useObject](#useObject) - Like `useState` but for objects, with state built-in merging
-- [useArray](#useArray) - Like `useState` but for arrays, with built-in useful setters
-- [useBoolean](#useBoolean) - Returns a boolean value with toggler and setters
-- [useNumber](#useNumber) - Returns a numeric value with useful setters.
+- [useMountEffect](#usemounteffect) - A semantic replacement for `useEffect` to run effect on mount.
+- [useUnmountEffect](#useunmounteffect) - A semantic replacement for `useEffect` to run effect on unmount.
+- [useRerenderEffect](#usererendereffect) - A semantic replacement for `useEffect` to run effect on re-renders, skipping mount.
+- [useConstantCallback](#useconstantcallback) - Returns a constant version of the function passed as argument.
+- [useConstant](#useconstant) - Keeps a constant value through re-renders.
+- [usePrevious](#useprevious) - Keeps a reference to the previous value of a given variable.
+- [useObject](#useobject) - Like `useState` but for objects, with state built-in merging.
+- [useMap](#usemap) - Like `useState` but for maps, with built-in setters.
+- [useArray](#usearray) - Like `useState` but for arrays, with built-in useful setters.
+- [useBoolean](#useboolean) - Returns a boolean value with toggler and setters.
+- [useNumber](#usenumber) - Returns a numeric value with useful setters.
 
 ### useMountEffect
 
@@ -194,6 +195,45 @@ Hook for creating an array with several setters for ease of use.
   `filter` - Like `Array.prototype.filter`
   `reset: () => void` - Resets the state back to the initial value
   `clear: () => void` - Sets the state to `[]`
+
+### useMap
+
+```tsx
+useMap = <K = any, V = any>(initialState: Map<K, V> | (() => Map<K, V>)): [Map<K, V>, MapSetter<K, V>]
+```
+
+Hook for creating an Map with several setters for ease of use.
+
+### `MapSetter` interface
+
+- `clear: () => void` - Removes all keys from the state.
+- `insert: (key: K, value: V) => void` - Adds a given key/value pair.
+- `remove: (key: K) => void` - Adds or updates a given key/value pair.
+- `set: Dispatch<SetStateAction<Map<K, V>>>` - State setter, the same you would get with `React.useState`.
+
+#### Example
+
+```jsx
+import { useMap } from '@react-hooks/core';
+
+const Component = () => {
+  const [map, setMap] = useMap(new Map([['a', 'a'], ['b', 'b']]));
+
+  console.log(map); // Map { a → "a", b → "b" }
+  
+  map.insert('c', 'c');
+  console.log(map); // Map { a → "a", b → "b", c → "c" }
+
+  map.remove('b');
+  console.log(map); // Map { a → "a", c → "c" }
+
+  map.clear() // Map {}
+
+  map.set(new Map([['d','d']]));
+  console.log(map); // Map { d → "d" }
+  
+};
+```
 
 ### useBoolean
 
