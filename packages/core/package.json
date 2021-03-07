@@ -1,6 +1,6 @@
 {
   "name": "@react-hookful/core",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Useful react hooks that help you clean up you functional components.",
   "keywords": [
     "react",

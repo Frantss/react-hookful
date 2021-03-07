@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.4.1...@react-hookful/core@0.5.0) (2021-03-07)
+
+
+### Features
+
+* **core:** add useMap ([1bd513d](https://github.com/Frantss/react-hookful/tree/master/packages/core/commit/1bd513d5325dc00eeb9b56116923f1f5421c7ec4))
+
+
+
+
+
 ## [0.4.1](https://github.com/Frantss/react-hookful/tree/master/packages/core/compare/@react-hookful/core@0.4.0...@react-hookful/core@0.4.1) (2020-11-26)
 
 
