@@ -17,7 +17,9 @@ describe('useStorage', () => {
   });
 
   it('uses the default value', () => {
-    const { result } = renderHook(() => useStorage(key, expected, localStorage));
+    const { result } = renderHook(() =>
+      useStorage(key, expected, localStorage),
+    );
     expect(result.current.get()).toStrictEqual(expected);
     expect(parser(localStorage.getItem(key))).toStrictEqual(expected);
   });
@@ -29,7 +31,9 @@ describe('useStorage', () => {
   });
 
   it('sets the value correctly', () => {
-    const { result } = renderHook(() => useStorage<object>(key, null, localStorage));
+    const { result } = renderHook(() =>
+      useStorage<object>(key, null, localStorage),
+    );
 
     act(() => {
       const success = result.current.set(expected);
@@ -54,7 +58,9 @@ describe('useStorage', () => {
 
   it('uses existing value when override option is false', () => {
     localStorage.setItem(key, serializedExpected);
-    const { result } = renderHook(() => useStorage(key, 'newDefault', localStorage));
+    const { result } = renderHook(() =>
+      useStorage(key, 'newDefault', localStorage),
+    );
     expect(result.current.get()).toStrictEqual(expected);
   });
 
@@ -63,7 +69,9 @@ describe('useStorage', () => {
       throw 'error';
     });
 
-    const { result } = renderHook(() => useStorage(key, expected, localStorage));
+    const { result } = renderHook(() =>
+      useStorage(key, expected, localStorage),
+    );
     expect(result.current.error).toBe('error');
   });
 
@@ -73,7 +81,9 @@ describe('useStorage', () => {
       throw 'error';
     });
 
-    const { result } = renderHook(() => useStorage<string>(key, null, localStorage));
+    const { result } = renderHook(() =>
+      useStorage<string>(key, null, localStorage),
+    );
     const success = result.current.set('notExpected');
     expect(success).toBeFalsy();
     expect(result.current.error).toBe('error');
